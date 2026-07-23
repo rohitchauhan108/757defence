@@ -1,0 +1,6 @@
+{
+  "name": "757 Defense - Criminal & DUI Lawyers",
+  "description": "Premier criminal defense law firm serving Virginia Beach, Norfolk, Chesapeake, and Hampton Roads. Specializing in DUI, reckless driving, domestic violence, drug charges, and military defense.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

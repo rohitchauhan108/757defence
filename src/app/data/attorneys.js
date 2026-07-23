@@ -1,0 +1,62 @@
+export const attorneys = [
+  {
+    id: "nadim-al-mansur",
+    name: "Nadim Al-Mansur, Esq.",
+    role: "Senior Managing Trial Partner",
+    practiceAreas: ["Criminal Defense", "Drug Crimes", "Domestic Violence", "Sex Crimes"],
+    experienceYears: 22,
+    education: "J.D., William & Mary Law School",
+    admissions: "Virginia State Bar, U.S. District Court (Eastern District of VA), Fourth Circuit Court of Appeals",
+    bio: "Nadim Al-Mansur is a renowned criminal defense trial attorney in Hampton Roads with over two decades of courtroom litigation experience. Named among Virginia's Top 10 Criminal Defense Lawyers, Nadim has successfully defended thousands of individuals facing complex felony charges, drug conspiracies, and high-profile criminal indictments.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+    awards: ["Super Lawyers Top 100 Virginia", "National Trial Lawyers Top 100", "AV Preeminent Judicial Rating 5.0/5.0"],
+    casesCount: 1450,
+    phone: "(757) 757-3333 ext. 101",
+    email: "nadim@757defense.com"
+  },
+  {
+    id: "ryan-stirling",
+    name: "J. Ryan Stirling, Esq.",
+    role: "Senior Partner, DUI & Violent Felony Lead",
+    practiceAreas: ["DUI & DWI Defense", "Violent Crimes & Firearm Defense", "Felony Litigation"],
+    experienceYears: 18,
+    education: "J.D., University of Virginia School of Law",
+    admissions: "Virginia State Bar, U.S. District Court (E.D. Va.), National College for DUI Defense (NCDD)",
+    bio: "As a former Assistant Commonwealth's Attorney in Virginia Beach, J. Ryan Stirling brings invaluable prosecutor insight to criminal defense. Ryan specializes in technical DUI breathalyzer litigation, felony gun charges, and self-defense jury trials across Virginia Beach, Norfolk, and Chesapeake.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
+    awards: ["National College for DUI Defense Member", "Top 10 DUI Attorney in Virginia", "10.0 Superb Rating on Avvo"],
+    casesCount: 1200,
+    phone: "(757) 757-3333 ext. 102",
+    email: "stirling@757defense.com"
+  },
+  {
+    id: "mark-vance",
+    name: "Mark A. Vance, Esq.",
+    role: "Partner, Military Defense & Traffic Division",
+    practiceAreas: ["Military Defense & UCMJ", "Reckless Driving & Traffic", "Federal Misdemeanors"],
+    experienceYears: 16,
+    education: "J.D., George Mason University Antonin Scalia Law School",
+    admissions: "Virginia State Bar, Navy-Marine Corps Court of Criminal Appeals, U.S. Court of Appeals for the Armed Forces",
+    bio: "Mark Vance served 8 years as an active duty Navy JAG Officer at Naval Station Norfolk before entering private defense practice. Mark passionately defends active duty sailors, soldiers, and airmen facing court-martial, Article 15s, administrative separation boards, and high-speed reckless driving charges.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800",
+    awards: ["Armed Forces Military Justice Medal", "Virginia Business Legal Elite", "Rising Stars Trial Lawyer"],
+    casesCount: 980,
+    phone: "(757) 757-3333 ext. 103",
+    email: "vance@757defense.com"
+  },
+  {
+    id: "jessica-sterling",
+    name: "Jessica K. Sterling, Esq.",
+    role: "Senior Associate, Domestic & Expungements",
+    practiceAreas: ["Domestic Violence", "Protective Orders", "Expungements & Gun Rights"],
+    experienceYears: 12,
+    education: "J.D., Regent University School of Law",
+    admissions: "Virginia State Bar, Virginia Trial Lawyers Association",
+    bio: "Jessica Sterling focuses her practice on defending clients accused of domestic assault, navigating emergency protective order hearings, and helping individuals clear past criminal arrest records through Virginia's expungement statutes.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    awards: ["Virginia Women Attorneys Association Leader", "Top 40 Under 40 Criminal Defense"],
+    casesCount: 650,
+    phone: "(757) 757-3333 ext. 104",
+    email: "jessica@757defense.com"
+  }
+];
