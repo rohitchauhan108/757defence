@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldAlert, Scale, PhoneCall, Award, CheckCircle2 } from 'lucide-react';
+import owner from "../../assets/images/owner.jpg";
 
 export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) {
   return (
@@ -70,7 +71,7 @@ export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) 
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D9AD74]" />
-                <span>Former Prosecutors & JAG</span>
+                <span>Former Public Defender</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D9AD74]" />
@@ -121,18 +122,18 @@ export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) 
           >
             <div className="relative w-full max-w-sm lg:max-w-md h-[400px] sm:h-[460px] lg:h-[500px] rounded-xs overflow-hidden border border-[#D9AD74]/30 shadow-2xl bg-[#14120F]">
               <img
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop"
-                alt="757 Defense Trial Attorney"
+                src={owner}
+                alt="Anton Karpov, Esq. - Lead Criminal Defense Attorney"
                 className="w-full h-full object-cover object-top filter brightness-95 contrast-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0E0C0A] via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-4 left-4 right-4 bg-[#12100E]/90 border border-[#D9AD74]/30 p-3 rounded-xs backdrop-blur-md">
                 <p className="font-crimson text-sm font-bold text-[#F5F2ED] uppercase tracking-wider">
-                  Nadim Al-Mansur & J. Ryan Stirling
+                  ANTON KARPOV, ESQ.
                 </p>
                 <p className="text-[11px] text-[#D9AD74] font-light">
-                  Senior Criminal Defense Partners • Virginia Beach & Norfolk
+                  Founder & Lead Defense Attorney • Virginia Beach & Hampton Roads
                 </p>
               </div>
             </div>
@@ -159,7 +160,7 @@ export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) 
                   20+ YEARS EXPERIENCE
                 </h3>
                 <p className="text-[#D8D4CE]/60 text-xs font-light leading-relaxed">
-                  Decades of relentless trial litigation in Virginia courts
+                  William & Mary Law Graduate & former Virginia Beach Public Defender
                 </p>
               </div>
             </div>
@@ -171,10 +172,10 @@ export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) 
               </div>
               <div className="space-y-1">
                 <h3 className="font-crimson text-base sm:text-lg font-bold text-[#F5F2ED] uppercase tracking-wider">
-                  98% CASE REDUCTION
+                  HUNDREDS OF TRIALS
                 </h3>
                 <p className="text-[#D8D4CE]/60 text-xs font-light leading-relaxed">
-                  Hundreds of DUI & reckless charges reduced or dismissed
+                  Extensive trial litigation in General District & Circuit Courts
                 </p>
               </div>
             </div>

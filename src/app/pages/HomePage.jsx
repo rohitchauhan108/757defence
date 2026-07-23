@@ -7,7 +7,8 @@ import ExperienceTrustSection from '../components/ExperienceTrustSection.jsx';
 import PracticeAreaModal from '../components/PracticeAreaModal.jsx';
 import AttorneyModal from '../components/AttorneyModal.jsx';
 import { practiceAreas } from '../data/practiceAreas.js';
-import { attorneys } from '../data/attorneys.js';
+import attorney from '../../assets/images/attorney.jpg';
+import owner from '../../assets/images/owner.jpg';
 import { 
   Building2, 
   ShieldCheck, 
@@ -26,7 +27,9 @@ import {
   ShieldAlert,
   Car,
   FileText,
-  Lock
+  Lock,
+  Scale,
+  GraduationCap
 } from 'lucide-react';
 
 export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor }) {
@@ -42,6 +45,10 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
   const [apptDate, setApptDate] = useState('');
   const [apptMessage, setApptMessage] = useState('');
   const [apptSubmitted, setApptSubmitted] = useState(false);
+
+  // High-resolution portraits for featured attorneys
+  const antonPortrait = "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop";
+  const gregoryPortrait = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop";
 
   const handleApptSubmit = (e) => {
     e.preventDefault();
@@ -75,9 +82,9 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         onOpenAIAdvisor={onOpenAIAdvisor} 
       />
 
-      {/* 2. ABOUT US SECTION (Light Marble / Cream Background with Pattern Overlay) */}
+      {/* 2. ABOUT US SECTION */}
       <section className="relative bg-[#FAF8F5] text-[#1A1815] py-24 px-6 lg:px-8 overflow-hidden">
-        {/* Elegant Marble/Texture Background Pattern */}
+        {/* Pattern Overlay */}
         <div 
           className="absolute inset-0 opacity-5 bg-cover bg-center pointer-events-none"
           style={{
@@ -130,7 +137,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            {/* Dark badge overlay */}
             <div className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-[#121110] text-[#F5F2ED] p-4 sm:p-6 border border-[#D9AD74]/40 shadow-2xl flex items-center gap-4 z-10 max-w-xs rounded-xs">
               <div className="w-10 h-10 border border-[#D9AD74] rounded-full flex items-center justify-center text-[#D9AD74] shrink-0">
                 <Award className="w-5 h-5" />
@@ -158,7 +164,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         </div>
       </section>
 
-      {/* FEATURED EXPERIENCE & TRUST SECTION (COLLAGE QUADRANT + 2x2 STATS) */}
+      {/* FEATURED EXPERIENCE & TRUST SECTION */}
       <ExperienceTrustSection 
         onOpenConsultation={onOpenConsultation} 
         navigate={navigate} 
@@ -166,7 +172,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
 
       {/* 3. OUR BENEFITS / WHY CHOOSE OUR DEFENSE LAWYERS? */}
       <section className="relative bg-[#12100E] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden">
-        {/* Law Bookshelf Background Watermark Pattern */}
         <div 
           className="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none filter brightness-50"
           style={{
@@ -176,7 +181,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
-          {/* Left Column Text & Checkmarks */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -196,7 +200,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
               When your freedom, reputation, and military clearance are on the line, you need criminal attorneys who know local judges and Commonwealth prosecutors inside and out.
             </p>
 
-            {/* Checkmark 2-Column Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-light text-[#D8D4CE]">
               {[
                 "24/7 Emergency Arrest & Bail Hotline",
@@ -216,7 +219,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </div>
           </motion.div>
 
-          {/* Right Column: Senior Attorney Photo */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -226,7 +228,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
           >
             <div className="relative w-full max-w-sm h-[420px] overflow-hidden border border-[#D9AD74]/40 shadow-2xl rounded-xs">
               <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                src="https://images.pexels.com/photos/32266781/pexels-photo-32266781.jpeg"
                 alt="757 Defense Trial Partner"
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
@@ -240,13 +242,10 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
       {/* 4. TIMELINE / JOURNEY SECTION */}
       <section className="bg-[#FAF8F5] text-[#12100E] py-20 px-6 lg:px-8 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
-          
           <div className="relative">
-            {/* Horizontal Line */}
             <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-[#D9AD74]/40 z-0" />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-              
               {[
                 { year: "2012", title: "FIRM FOUNDED", desc: "Established in Virginia Beach to defend citizens against unjust criminal charges." },
                 { year: "2016", title: "NORFOLK EXPANSION", desc: "Opened secondary office near Norfolk Federal & General District Courts." },
@@ -272,10 +271,8 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
                   </p>
                 </motion.div>
               ))}
-
             </div>
           </div>
-
         </div>
       </section>
 
@@ -283,7 +280,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
       <section className="bg-[#FAF8F5] text-[#12100E] pb-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
           
-          {/* Top text header */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -309,7 +305,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </div>
           </motion.div>
 
-          {/* 4 Stat Boxes with Motion */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { num: "1,450+", label: "Cases Defended" },
@@ -331,7 +326,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             ))}
           </div>
 
-          {/* Make An Appointment Box */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -339,7 +333,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             transition={{ duration: 0.7 }}
             className="bg-[#EFE8DC] border border-[#D9AD74]/40 shadow-2xl rounded-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12"
           >
-            {/* Left Image */}
             <div className="lg:col-span-5 relative min-h-[320px]">
               <img 
                 src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
@@ -349,14 +342,13 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
               />
             </div>
 
-            {/* Right Form */}
             <div className="lg:col-span-7 p-8 sm:p-12 space-y-6">
               <div>
                 <h3 className="font-crimson text-3xl font-bold text-[#12100E] uppercase tracking-wide">
                   REQUEST FREE CASE REVIEW
                 </h3>
                 <p className="text-xs text-[#524E48] font-light mt-1">
-                  Connect immediately with senior criminal partners Nadim Al-Mansur or J. Ryan Stirling.
+                  Connect immediately with senior criminal partners Anton Karpov or Gregory Pugh.
                 </p>
               </div>
 
@@ -420,7 +412,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
                 )}
               </form>
             </div>
-
           </motion.div>
 
         </div>
@@ -428,8 +419,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
 
       {/* 6. LEGAL PRACTICE AREAS */}
       <section className="relative bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden">
-        
-        {/* Capitol Dome Watermark Background */}
         <div 
           className="absolute inset-0 opacity-15 bg-cover bg-center pointer-events-none filter brightness-50" 
           style={{
@@ -453,182 +442,163 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </h2>
           </motion.div>
 
-          {/* Grid of Practice Areas */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {practiceAreas.map((area, idx) => {
-              return (
-                <motion.div 
-                  key={area.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedPracticeArea(area);
-                  }}
-                  className="bg-[#12100E]/90 p-8 rounded-xs border border-white/10 hover:border-[#D9AD74] transition-all duration-300 cursor-pointer group flex flex-col justify-between space-y-4 shadow-xl hover:shadow-[#D9AD74]/10 transform hover:-translate-y-1"
-                >
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-xs border border-[#D9AD74]/30 bg-[#0E0C0A] text-[#D9AD74] flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <ShieldAlert className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED] group-hover:text-[#D9AD74] transition-colors">
-                      {area.title}
-                    </h3>
-                    <p className="text-xs text-[#D8D4CE]/70 font-light leading-relaxed">
-                      {area.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 flex items-center text-xs font-bold text-[#D9AD74] group-hover:underline uppercase tracking-wider">
-                    Learn Defenses & Penalties →
-                  </div>
-                </motion.div>
-              );
-            })}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. OUR TESTIMONIAL SECTION */}
-      <section className="relative bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-          
-          {/* Left Column Quote Card */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7 space-y-6"
-          >
-            <span className="text-[#D9AD74] text-xs font-semibold uppercase tracking-[0.2em] block">
-              CLIENT REVIEW
-            </span>
-
-            <div className="bg-[#14120F]/90 border border-[#D9AD74]/30 p-8 sm:p-10 space-y-6 shadow-2xl relative rounded-xs">
-              <Quote className="w-10 h-10 text-[#D9AD74]/40" />
-
-              <p className="text-xs sm:text-sm text-[#D8D4CE] font-light italic leading-relaxed">
-                "I was pulled over in Virginia Beach and charged with a 2nd DUI. I was facing mandatory jail time. Nadim and Ryan challenged the breathalyzer calibration logs in General District Court and got my entire case dismissed. They saved my career."
-              </p>
-
-              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
-                  alt="Marcus T."
-                  className="w-12 h-12 rounded-full object-cover border border-[#D9AD74]"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-crimson text-lg font-bold text-[#F5F2ED] uppercase tracking-wider">
-                    MARCUS T.
-                  </h4>
-                  <p className="text-xs text-[#D9AD74]">U.S. Navy Veteran • Virginia Beach, VA</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column Standing Lawyer */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5 flex justify-center"
-          >
-            <div className="relative w-full max-w-sm h-[400px] border border-[#D9AD74]/30 shadow-2xl overflow-hidden rounded-xs">
-              <img 
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop"
-                alt="757 Defense Attorney"
-                className="w-full h-full object-cover object-top"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* 8. OUR TEAM SECTION */}
-      <section className="bg-[#FAF8F5] text-[#12100E] py-24 px-6 lg:px-8 border-t border-black/5">
-        <div className="max-w-7xl mx-auto space-y-12">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-7 space-y-2">
-              <span className="text-[#D9AD74] text-xs font-semibold uppercase tracking-[0.2em] block">
-                MEET OUR PARTNERS
-              </span>
-              <h2 className="font-crimson text-4xl sm:text-5xl font-bold text-[#12100E] leading-tight">
-                757 Defense Trial Lawyers
-              </h2>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-3 text-right">
-              <p className="text-xs text-[#6B655D] font-light leading-relaxed max-w-sm">
-                Dedicated criminal defense attorneys serving Virginia Beach, Norfolk & Hampton Roads.
-              </p>
-              <button
-                onClick={() => navigate('/attorneys')}
-                className="font-serif italic text-sm font-semibold text-[#B88D51] hover:underline cursor-pointer transition-colors"
-              >
-                View Full Legal Team →
-              </button>
-            </div>
-          </div>
-
-          {/* Attorney Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {attorneys.slice(0, 3).map((attorney, idx) => (
+            {practiceAreas.map((area, idx) => (
               <motion.div 
-                key={attorney.id}
+                key={area.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
                 onClick={(e) => {
                   e.preventDefault();
-                  setSelectedAttorney(attorney);
+                  setSelectedPracticeArea(area);
                 }}
-                className="relative bg-[#2D1E12] overflow-hidden shadow-xl group cursor-pointer border border-[#3A291A] rounded-xs"
+                className="bg-[#12100E]/90 p-8 rounded-xs border border-white/10 hover:border-[#D9AD74] transition-all duration-300 cursor-pointer group flex flex-col justify-between space-y-4 shadow-xl hover:shadow-[#D9AD74]/10 transform hover:-translate-y-1"
               >
-                {/* Attorney Photo */}
-                <div className="h-[380px] sm:h-[400px] overflow-hidden relative bg-gradient-to-b from-[#3A2718] to-[#22160C]">
-                  <img 
-                    src={attorney.image}
-                    alt={attorney.name}
-                    className="w-full h-full object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#22160C]/80 via-transparent to-transparent pointer-events-none" />
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xs border border-[#D9AD74]/30 bg-[#0E0C0A] text-[#D9AD74] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <ShieldAlert className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED] group-hover:text-[#D9AD74] transition-colors">
+                    {area.title}
+                  </h3>
+                  <p className="text-xs text-[#D8D4CE]/70 font-light leading-relaxed">
+                    {area.description}
+                  </p>
                 </div>
 
-                {/* Overlapping Floating Label Box */}
-                <div className="absolute bottom-0 right-0 w-[82%] bg-white py-4 px-5 shadow-2xl transition-all duration-300 group-hover:bg-[#FAF8F5]">
-                  <h3 className="font-crimson text-lg font-bold text-[#12100E] uppercase tracking-wider text-center">
-                    {attorney.name}
-                  </h3>
-                  <p className="text-xs text-[#807970] text-center font-light mt-0.5">
-                    {attorney.title}
-                  </p>
+                <div className="pt-2 flex items-center text-xs font-bold text-[#D9AD74] group-hover:underline uppercase tracking-wider">
+                  Learn Defenses & Penalties →
                 </div>
               </motion.div>
             ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. ATTORNEY SPOTLIGHT SECTION (REPLACED CLIENT REVIEW SECTION) */}
+      <section className="relative bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden font-poppins">
+        
+        {/* Subtle Background Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D9AD74]/5 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto space-y-14 relative z-10">
+          
+          {/* Section Header */}
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-[#D9AD74] text-xs font-semibold uppercase tracking-[0.25em] flex items-center justify-center gap-2">
+              <Scale className="w-4 h-4 text-[#D9AD74]" />
+              LEADERSHIP & LEGAL EXPERIENCE
+            </span>
+            <h2 className="font-crimson text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2ED] uppercase tracking-tight">
+              Meet Our Trial Attorneys
+            </h2>
+            <div className="w-16 h-0.5 bg-[#D9AD74] mx-auto opacity-70" />
+          </div>
+
+          {/* 2-Column Grid for Both Attorney Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            
+            {/* ================= ATTORNEY 1: ANTON KARPOV ================= */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#14120F] border border-[#D9AD74]/30 rounded-xs overflow-hidden shadow-2xl flex flex-col sm:flex-row group hover:border-[#D9AD74]/60 transition-all"
+            >
+              {/* Image Column */}
+              <div className="sm:w-2/5 relative h-72 sm:h-auto min-h-[300px] bg-[#0E0C0A] overflow-hidden shrink-0">
+                <img 
+                  src={owner}
+                  alt="Anton Karpov, Esq."
+                  className="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14120F] via-transparent to-transparent sm:hidden" />
+              </div>
+
+              {/* Content Column */}
+              <div className="sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-[#D9AD74]">
+                    <GraduationCap className="w-4 h-4" />
+                    <span className="text-[10px] uppercase tracking-widest font-semibold">William & Mary Law ('06)</span>
+                  </div>
+                  <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED] uppercase tracking-wider">
+                    ANTON KARPOV, ESQ.
+                  </h3>
+                  <p className="text-xs text-[#D9AD74] font-medium">
+                    Criminal & Traffic Defense • Personal Injury
+                  </p>
+                  <p className="text-xs text-[#D8D4CE]/80 font-light leading-relaxed pt-1">
+                    Obtained his Law Degree in 2006 from William & Mary Law School. He began his legal career as a Public Defender in Virginia Beach. For twelve years, he fought fiercely and passionately for each client, tried hundreds of criminal cases, argued legal motions in Juvenile, General District, and Circuit Courts, and argued before the Virginia Court of Appeals and Supreme Court of Virginia.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] text-[#D8D4CE]/70">
+                  <ShieldCheck className="w-4 h-4 text-[#D9AD74]" />
+                  <span>Former Virginia Beach Public Defender</span>
+                </div>
+              </div>
+            </motion.div>
+
+
+            {/* ================= ATTORNEY 2: GREGORY K. PUGH ================= */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[#14120F] border border-[#D9AD74]/30 rounded-xs overflow-hidden shadow-2xl flex flex-col sm:flex-row group hover:border-[#D9AD74]/60 transition-all"
+            >
+              {/* Image Column */}
+              <div className="sm:w-2/5 relative h-72 sm:h-auto min-h-[300px] bg-[#0E0C0A] overflow-hidden shrink-0">
+                <img 
+                  src={attorney}
+                  alt="Gregory K. Pugh, Esq."
+                  className="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14120F] via-transparent to-transparent sm:hidden" />
+              </div>
+
+              {/* Content Column */}
+              <div className="sm:w-3/5 p-6 sm:p-8 flex flex-col justify-between space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-[#D9AD74]">
+                    <Award className="w-4 h-4" />
+                    <span className="text-[10px] uppercase tracking-widest font-semibold">LL.M. William & Mary ('91)</span>
+                  </div>
+                  <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED] uppercase tracking-wider">
+                    GREGORY K. PUGH, ESQ.
+                  </h3>
+                  <p className="text-xs text-[#D9AD74] font-medium">
+                    Civil Litigation • Bankruptcy • Criminal Defense
+                  </p>
+                  <p className="text-xs text-[#D8D4CE]/80 font-light leading-relaxed pt-1">
+                    Obtained his Juris Doctor degree from Pettit College of Law at Ohio Northern University in 1981 and an advanced Master of Laws Degree (LLM) from William & Mary in 1991. He has actively practiced in Virginia courts since 1988 and opened his own practice in 1996, specializing in civil litigation, bankruptcy, traffic, and criminal defense.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] text-[#D8D4CE]/70">
+                  <ShieldCheck className="w-4 h-4 text-[#D9AD74]" />
+                  <span>35+ Years Active Virginia Trial Practice</span>
+                </div>
+              </div>
+            </motion.div>
 
           </div>
 
         </div>
       </section>
 
-      {/* 9. 20+ YEARS EXPERIENCE BANNER */}
+      {/* 8. 20+ YEARS EXPERIENCE BANNER */}
       <section className="bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20">
         <div className="max-w-7xl mx-auto space-y-12">
           
-          {/* Stat bar */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -653,7 +623,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </div>
           </motion.div>
 
-          {/* Category Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "DUI & DWI", tag: "Virginia Beach & Norfolk", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" },
@@ -689,7 +658,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         </div>
       </section>
 
-      {/* 10. LATEST LEGAL BLOG ARTICLES */}
+      {/* 9. LATEST LEGAL BLOG ARTICLES */}
       <section className="bg-[#FAF8F5] text-[#12100E] py-24 px-6 lg:px-8 border-t border-black/5">
         <div className="max-w-7xl mx-auto space-y-12">
           
@@ -702,7 +671,6 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </h2>
           </div>
 
-          {/* 3 News Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "WHAT TO DO IMMEDIATELY IF ARRESTED FOR DUI IN VIRGINIA BEACH", date: "May 20, 2026" },
@@ -730,7 +698,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
                 </div>
                 <button 
                   onClick={() => navigate('/blog')}
-                  className="text-xs font-bold text-[#D9AD74] hover:underline uppercase tracking-wider block pt-2 cursor-pointer"
+                  className="text-xs font-bold text-[#D9AD74] hover:underline uppercase tracking-wider block pt-2 cursor-pointer text-left"
                 >
                   Read Full Article »
                 </button>
@@ -750,7 +718,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         </div>
       </section>
 
-      {/* 11. NEWSLETTER SECTION */}
+      {/* 10. NEWSLETTER SECTION */}
       <section className="relative bg-[#0E0C0A] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden">
         <div className="max-w-4xl mx-auto text-center space-y-6 relative z-10">
           <motion.h2 
@@ -762,20 +730,25 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             Subscribe to Virginia Legal Updates
           </motion.h2>
 
-          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto">
-            <input
+          <p className="text-xs sm:text-sm text-[#D8D4CE]/70 max-w-xl mx-auto font-light leading-relaxed">
+            Stay informed on changes to Virginia criminal laws, DUI defense strategies, and court procedures in Virginia Beach and Norfolk.
+          </p>
+
+          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-4">
+            <input 
               type="email"
-              placeholder="Your Email Address"
+              placeholder="Enter your email address..."
               value={emailNewsletter}
               onChange={(e) => setEmailNewsletter(e.target.value)}
               required
-              className="w-full bg-[#1A1815] border border-white/20 text-[#F5F2ED] text-xs px-5 py-3.5 focus:outline-none focus:border-[#D9AD74] rounded-xs"
+              className="w-full sm:w-auto flex-1 bg-[#161412] border border-[#D9AD74]/30 px-4 py-3 text-xs text-[#F5F2ED] placeholder-[#D8D4CE]/40 focus:outline-none focus:border-[#D9AD74] rounded-xs"
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold text-xs uppercase tracking-[0.2em] transition-colors shrink-0 cursor-pointer rounded-xs"
+              className="w-full sm:w-auto px-6 py-3 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold text-xs uppercase tracking-widest transition-all rounded-xs cursor-pointer flex items-center justify-center gap-2"
             >
-              SUBSCRIBE
+              <span>Subscribe</span>
+              <Send className="w-3.5 h-3.5" />
             </button>
           </form>
 
@@ -787,18 +760,21 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         </div>
       </section>
 
-      {/* Modals */}
-      <PracticeAreaModal
-        area={selectedPracticeArea}
-        onClose={() => setSelectedPracticeArea(null)}
-        onOpenConsultation={onOpenConsultation}
-      />
+      {/* MODALS */}
+      {selectedPracticeArea && (
+        <PracticeAreaModal 
+          area={selectedPracticeArea} 
+          onClose={() => setSelectedPracticeArea(null)} 
+          onOpenConsultation={onOpenConsultation}
+        />
+      )}
 
-      <AttorneyModal
-        attorney={selectedAttorney}
-        onClose={() => setSelectedAttorney(null)}
-        onOpenConsultation={onOpenConsultation}
-      />
+      {selectedAttorney && (
+        <AttorneyModal 
+          attorney={selectedAttorney} 
+          onClose={() => setSelectedAttorney(null)} 
+        />
+      )}
 
     </div>
   );

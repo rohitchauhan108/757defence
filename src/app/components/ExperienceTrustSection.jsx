@@ -5,25 +5,29 @@ import { motion } from 'motion/react';
 import { GraduationCap, Lightbulb, Scale, ShieldCheck, Award, ArrowRight } from 'lucide-react';
 
 export default function ExperienceTrustSection({ onOpenConsultation, navigate }) {
+  // High-resolution image URLs for collage
+  const attorneySessionImg = "https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg";
+  const attorneyTeamImg = "https://images.pexels.com/photos/8731037/pexels-photo-8731037.jpeg";
+
   return (
-    <section className="relative bg-[#0B0A08] text-[#F5F2ED] py-20 px-6 lg:px-8 overflow-hidden border-t border-[#D9AD74]/20">
+    <section className="relative bg-[#0B0A08] text-[#F5F2ED] py-20 px-6 lg:px-8 overflow-hidden border-t border-[#D9AD74]/20 font-poppins">
       <div className="max-w-7xl mx-auto">
         
         {/* Main Grid: Left Collage + Right Dark Content Box */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* ================= LEFT QUADRANT COLLAGE (5 cols on lg) ================= */}
+          {/* ================= LEFT QUADRANT COLLAGE (6 cols on lg) ================= */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4 h-full min-h-[460px]">
             
             {/* Top-Left: Gold Quarter-Circle Box */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-[#D9AD74] text-[#0F0F0F] p-6 sm:p-8 rounded-tl-[120px] sm:rounded-tl-[180px] flex flex-col items-center justify-center text-center shadow-2xl relative group overflow-hidden"
+              className="bg-[#D9AD74] text-[#0F0F0F] p-6 sm:p-8 rounded-tl-[120px] sm:rounded-tl-[180px] flex flex-col items-center justify-center text-center shadow-2xl relative group overflow-hidden border border-[#D9AD74]"
             >
-              <div className="w-14 h-14 rounded-full bg-[#0F0F0F]/10 flex items-center justify-center mb-4 text-[#0F0F0F] group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-full bg-[#0F0F0F]/10 flex items-center justify-center mb-4 text-[#0F0F0F] group-hover:scale-110 transition-transform duration-300">
                 <GraduationCap className="w-8 h-8 stroke-[2.2]" />
               </div>
               <h3 className="font-crimson text-lg sm:text-2xl font-bold uppercase tracking-tight leading-snug max-w-[200px]">
@@ -33,47 +37,47 @@ export default function ExperienceTrustSection({ onOpenConsultation, navigate })
 
             {/* Top-Right: Attorney Image Box 1 */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative overflow-hidden rounded-tr-md sm:rounded-tr-lg shadow-2xl border border-white/10 group min-h-[220px]"
+              className="relative overflow-hidden rounded-tr-md sm:rounded-tr-lg shadow-2xl border border-[#D9AD74]/30 group min-h-[220px] bg-[#14120F]"
             >
               <img 
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop"
+                src={attorneySessionImg}
                 alt="757 Defense Senior Attorneys in Strategy Session"
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-top filter brightness-90 group-hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08]/80 via-transparent to-transparent opacity-60" />
             </motion.div>
 
             {/* Bottom-Left: Attorney Team Image Box 2 */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative overflow-hidden rounded-bl-md sm:rounded-bl-lg shadow-2xl border border-white/10 group min-h-[220px]"
+              className="relative overflow-hidden rounded-bl-md sm:rounded-bl-lg shadow-2xl border border-[#D9AD74]/30 group min-h-[220px] bg-[#14120F]"
             >
               <img 
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop"
+                src={attorneyTeamImg}
                 alt="757 Defense Trial Lawyers Team"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-center filter brightness-90 group-hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08]/80 via-transparent to-transparent opacity-60" />
             </motion.div>
 
             {/* Bottom-Right: Gold Quarter-Circle Box */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-[#D9AD74] text-[#0F0F0F] p-6 sm:p-8 rounded-br-[120px] sm:rounded-br-[180px] flex flex-col items-center justify-center text-center shadow-2xl relative group overflow-hidden"
+              className="bg-[#D9AD74] text-[#0F0F0F] p-6 sm:p-8 rounded-br-[120px] sm:rounded-br-[180px] flex flex-col items-center justify-center text-center shadow-2xl relative group overflow-hidden border border-[#D9AD74]"
             >
-              <div className="w-14 h-14 rounded-full bg-[#0F0F0F]/10 flex items-center justify-center mb-4 text-[#0F0F0F] group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-full bg-[#0F0F0F]/10 flex items-center justify-center mb-4 text-[#0F0F0F] group-hover:scale-110 transition-transform duration-300">
                 <Lightbulb className="w-8 h-8 stroke-[2.2]" />
               </div>
               <h3 className="font-crimson text-lg sm:text-2xl font-bold uppercase tracking-tight leading-snug max-w-[200px]">
@@ -107,14 +111,14 @@ export default function ExperienceTrustSection({ onOpenConsultation, navigate })
                   </span>
                   <h2 className="font-crimson text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F5F2ED] leading-[1.15]">
                     Experience You Can Trust,<br />
-                    Service You Can Count On !
+                    Service You Can Count On!
                   </h2>
                 </div>
 
                 {/* Call To Action Badge Button */}
                 <button
                   onClick={() => onOpenConsultation ? onOpenConsultation() : (navigate && navigate('/contact'))}
-                  className="self-start px-5 py-2.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold text-[11px] uppercase tracking-widest shadow-md hover:shadow-lg transition-all rounded-xs shrink-0 cursor-pointer flex items-center gap-2"
+                  className="self-start px-5 py-2.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold text-[11px] uppercase tracking-widest shadow-md hover:shadow-lg hover:scale-105 transition-all rounded-xs shrink-0 cursor-pointer flex items-center gap-2"
                 >
                   <span>FREE EVALUATION</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer } from 'lucide-react';
 
 export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -48,36 +48,23 @@ export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
               <div className="space-y-3 text-xs text-[#D8D4CE]/80 font-light">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#D9AD74] shrink-0 mt-0.5" />
-                  <span>2490 Virginia Beach Blvd, Suite 300, Virginia Beach, VA 23454</span>
+                  <span>757 Defense 2400 Princess Anne Road, Virginia Beach, VA 23456</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="tel:7577573333" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]">(757) 757-3333</a>
+                  <a href="tel:7579079075" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]">(757) 907-9075</a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Printer className="w-4 h-4 text-[#D9AD74] shrink-0" />
+                  <span>Fax: (757) 782-9982</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="mailto:defense@757defense.com" className="hover:text-[#D9AD74]">defense@757defense.com</a>
+                  <a href="mailto:757defense@gmail.com" className="hover:text-[#D9AD74]">757defense@Gmail.Com</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-[#D9AD74] shrink-0" />
                   <span>24/7 Emergency Criminal & DUI Hotline</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#12100E] border border-[#D9AD74]/30 rounded-xs p-6 space-y-4 shadow-xl">
-              <h3 className="font-crimson text-xl font-bold text-[#F5F2ED] border-b border-[#D9AD74]/20 pb-2">
-                Norfolk Courthouse Office
-              </h3>
-              
-              <div className="space-y-3 text-xs text-[#D8D4CE]/80 font-light">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#D9AD74] shrink-0 mt-0.5" />
-                  <span>150 Boush Street, Suite 800, Norfolk, VA 23510</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="tel:7577573333" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]">(757) 757-3333</a>
                 </div>
               </div>
             </div>

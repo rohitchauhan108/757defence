@@ -9,8 +9,7 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  MessageSquare,
-  ShieldCheck
+  MessageSquare
 } from 'lucide-react';
 
 export default function Navbar({ currentPath, navigate, onOpenConsultation, onOpenAIAdvisor }) {
@@ -40,31 +39,31 @@ export default function Navbar({ currentPath, navigate, onOpenConsultation, onOp
       <div className="bg-[#070605] text-[#D8D4CE] text-xs py-2 px-6 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
           <div className="flex items-center gap-6 text-[11px] font-light">
-            <a href="tel:7577573333" className="flex items-center gap-2 hover:text-[#D9AD74] transition-colors font-medium">
+            <a href="tel:7579079075" className="flex items-center gap-2 hover:text-[#D9AD74] transition-colors font-medium">
               <Phone className="w-3.5 h-3.5 text-[#D9AD74]" />
-              <span>24/7 Hotline: (757) 757-3333</span>
+              <span>24/7 Hotline: (757) 907-9075</span>
             </a>
-            <a href="mailto:defense@757defense.com" className="hidden sm:flex items-center gap-2 hover:text-[#D9AD74] transition-colors">
+            <a href="mailto:757defense@gmail.com" className="hidden sm:flex items-center gap-2 hover:text-[#D9AD74] transition-colors">
               <Mail className="w-3.5 h-3.5 text-[#D9AD74]" />
-              <span>defense@757defense.com</span>
+              <span>757defense@gmail.com</span>
             </a>
             <div className="hidden md:flex items-center gap-2 text-[#D8D4CE]/60">
               <MapPin className="w-3.5 h-3.5 text-[#D9AD74]" />
-              <span>Virginia Beach & Norfolk, VA</span>
+              <span>2400 Princess Anne Road, Virginia Beach, VA 23456</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenAIAdvisor}
-              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#D9AD74]/10 hover:bg-[#D9AD74] hover:text-[#0F0F0F] text-[#D9AD74] transition-all border border-[#D9AD74]/30 text-[11px] font-medium rounded-xs"
+              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#D9AD74]/10 hover:bg-[#D9AD74] hover:text-[#0F0F0F] text-[#D9AD74] transition-all border border-[#D9AD74]/30 text-[11px] font-medium rounded-xs cursor-pointer"
             >
               <MessageSquare className="w-3 h-3" />
               <span>AI Case Evaluator</span>
             </button>
             <button
               onClick={() => onOpenConsultation && onOpenConsultation()}
-              className="px-3.5 py-1 bg-[#D9AD74] text-[#0F0F0F] hover:bg-[#B88D51] text-[11px] font-bold uppercase tracking-wider transition-colors rounded-xs shadow-sm"
+              className="px-3.5 py-1 bg-[#D9AD74] text-[#0F0F0F] hover:bg-[#B88D51] text-[11px] font-bold uppercase tracking-wider transition-colors rounded-xs shadow-sm cursor-pointer"
             >
               Free Case Review
             </button>
