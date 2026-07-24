@@ -55,7 +55,7 @@ export default function Hero({ navigate, onOpenConsultation, onOpenAIAdvisor }) 
               transition={{ duration: 0.7, delay: 0.4 }}
               className="text-[#D8D4CE]/80 text-sm sm:text-base max-w-xl leading-relaxed font-light"
             >
-              Relentless trial defense for DUI, Reckless Driving, Domestic Violence, Drug Crimes, Violent Felonies, and Military UCMJ charges across Virginia Beach, Norfolk, and Chesapeake.
+              Expert trial defense for DUI, Reckless Driving, Domestic Violence, Drug Crimes, Violent Felonies  across Virginia Beach, Norfolk, Chesapeake and other Hampton Roads Courts. 
             </motion.p>
 
             {/* Quick Badge List */}

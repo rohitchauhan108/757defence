@@ -75,44 +75,7 @@ export const practiceAreas = [
     featuredCase: "PWID felony drug charges thrown out after judge granted motion to suppress unconstitutional vehicle search.",
     leadAttorney: "Nadim Al-Mansur, Esq."
   },
-  {
-    id: "violent-crimes-weapons",
-    slug: "violent-crimes-weapons",
-    title: "Violent Crimes & Firearm Defense",
-    icon: "Gavel",
-    shortDescription: "High-stakes trial litigation for gun charges, brandishing, robbery, malicious wounding, and homicide defense.",
-    fullDescription: "When facing violent felony charges or firearm enhancements in Virginia, your life and liberty are on the line. 757 Defense delivers battle-tested courtroom advocacy, utilizing forensic experts, ballistics specialists, and private investigators to build an unshakeable defense.",
-    keyServices: [
-      "Brandishing a Firearm & Concealed Weapon Violations",
-      "Use of Firearm in Commission of a Felony (Mandatory Minimums)",
-      "Robbery, Burglary & Carjacking Defense",
-      "Malicious Wounding & Aggravated Assault",
-      "Self-Defense & Castle Doctrine Defense",
-      "Capital & First-Degree Murder Trial Defense"
-    ],
-    stats: "Decades of Unrivaled Trial Experience",
-    featuredCase: "Not Guilty verdict on all counts for client charged with aggravated malicious wounding involving self-defense.",
-    leadAttorney: "J. Ryan Stirling, Esq."
-  },
-  {
-    id: "military-defense-ucmj",
-    slug: "military-defense-ucmj",
-    title: "Military Criminal Defense & UCMJ",
-    icon: "Building2",
-    shortDescription: "Dedicated defense for active duty personnel, officers, and sailors facing Court-Martial, Article 15s, or Separation Boards.",
-    fullDescription: "Hampton Roads is home to the world's largest naval base and thousands of military personnel. A criminal charge or command inquiry threatens your military rank, pension, security clearance, and honorable discharge. We represent servicemembers at Naval Station Norfolk, NAS Oceana, Fort Eustis, and Langley AFB.",
-    keyServices: [
-      "Courts-Martial Trial Defense (Summary, Special, General)",
-      "Non-Judicial Punishment (Article 15 / Captain's Mast)",
-      "Administrative Separation Boards & Officer Elimination",
-      "Security Clearance Defense & DOHA Appeals",
-      "NCIS, CID, and OSI Command Investigation Defense",
-      "Military DUI & On-Base Traffic Violations"
-    ],
-    stats: "Proudly Defending Hampton Roads Servicemembers",
-    featuredCase: "Secured Full Retention & Honorable Discharge for Navy Petty Officer facing administrative separation board.",
-    leadAttorney: "Mark A. Vance, Esq."
-  },
+ 
   {
     id: "sex-crimes-internet",
     slug: "sex-crimes-internet",

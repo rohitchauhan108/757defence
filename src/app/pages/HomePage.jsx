@@ -121,10 +121,10 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
 
             <div className="lg:col-span-7 space-y-4 text-xs sm:text-sm text-[#3D3A35] font-light leading-relaxed">
               <p>
-                757 Defense delivers aggressive, trial-tested criminal representation across Virginia Beach, Norfolk, Chesapeake, Portsmouth, Hampton, and Newport News courts. Founded by former prosecutors and military defense attorneys, we know exactly how the Commonwealth builds its case—and how to dismantle it.
+                757 Defense delivers aggressive, trial-tested criminal representation across Virginia Beach, Norfolk, Chesapeake, Portsmouth, Hampton, and Newport News courts. Founded by former public defender, we know exactly how the Commonwealth builds its case—and how to dismantle it.
               </p>
               <p>
-                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution, or federal UCMJ military courts-martial, our trial partners fight tirelessly to protect your record, driving privileges, and personal freedom.
+                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution.
               </p>
             </div>
           </motion.div>
@@ -203,9 +203,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-light text-[#D8D4CE]">
               {[
                 "24/7 Emergency Arrest & Bail Hotline",
-                "Hundreds of DUI & Reckless Cases Reduced",
-                "Former Commonwealth Prosecutors on Team",
-                "JAG Military Defense Experience",
+                "Hundreds of DUI & Reckless Cases Defended",
                 "Direct Senior Partner Representation",
                 "Transparent Flat-Fee Defense Pricing"
               ].map((benefit, i) => (
@@ -240,7 +238,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
       </section>
 
       {/* 4. TIMELINE / JOURNEY SECTION */}
-      <section className="bg-[#FAF8F5] text-[#12100E] py-20 px-6 lg:px-8 border-t border-black/5">
+      {/* <section className="bg-[#FAF8F5] text-[#12100E] py-20 px-6 lg:px-8 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
           <div className="relative">
             <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-[#D9AD74]/40 z-0" />
@@ -274,10 +272,10 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 5. STATS & FREE CASE EVALUATION APPOINTMENT FORM */}
-      <section className="bg-[#FAF8F5] text-[#12100E] pb-24 px-6 lg:px-8">
+      <section className="bg-[#FAF8F5] text-[#12100E] pb-24 px-6 pt-24 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
           
           <motion.div 
@@ -595,7 +593,7 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
         </div>
       </section>
 
-      {/* 8. 20+ YEARS EXPERIENCE BANNER */}
+      {/* 8. 55+ YEARS EXPERIENCE BANNER */}
       <section className="bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20">
         <div className="max-w-7xl mx-auto space-y-12">
           
@@ -606,29 +604,28 @@ export default function HomePage({ navigate, onOpenConsultation, onOpenAIAdvisor
             className="flex flex-wrap items-center justify-around gap-8 p-8 bg-[#14120F] border border-[#D9AD74]/30 shadow-2xl rounded-xs"
           >
             <div className="flex items-center gap-4">
-              <span className="font-crimson text-6xl font-bold text-[#D9AD74]">20+</span>
+              <span className="font-crimson text-6xl font-bold text-[#D9AD74]">55+</span>
               <span className="font-crimson text-base uppercase tracking-wider text-[#F5F2ED]">
                 years of combined <br />trial experience
               </span>
             </div>
 
             <div className="text-center">
-              <span className="font-crimson text-4xl font-bold text-[#F5F2ED] block">1,450+</span>
-              <span className="text-xs text-[#D8D4CE]/60 uppercase tracking-wider">Cases Defended</span>
+              <span className="font-crimson text-4xl font-bold text-[#F5F2ED] block">1,000+</span>
+              <span className="text-xs text-[#D8D4CE]/60 uppercase tracking-wider">Criminal & Defended Cases</span>
             </div>
 
             <div className="text-center">
-              <span className="font-crimson text-4xl font-bold text-[#F5F2ED] block">500+</span>
-              <span className="text-xs text-[#D8D4CE]/60 uppercase tracking-wider">Full Dismissals</span>
+              <span className="font-crimson text-4xl font-bold text-white block"></span>
+              <span className="text-lg text-white uppercase tracking-wider">We are proud of the Results of our Work</span>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "DUI & DWI", tag: "Virginia Beach & Norfolk", img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600&auto=format&fit=crop" },
               { title: "Reckless Driving", tag: "Speeding & Traffic Defense", img: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=600&auto=format&fit=crop" },
-              { title: "Domestic Violence", tag: "Protective Orders & Assault", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=600&auto=format&fit=crop" },
-              { title: "Military UCMJ", tag: "Naval Station Norfolk", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" }
+              { title: "Domestic Violence", tag: "Protective Orders & Assault", img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=600&auto=format&fit=crop" }
             ].map((cat, idx) => (
               <motion.div 
                 key={idx}

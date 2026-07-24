@@ -127,7 +127,7 @@ export default function ExperienceTrustSection({ onOpenConsultation, navigate })
 
               {/* Subtitle text */}
               <p className="text-xs sm:text-sm text-[#D8D4CE]/80 font-light leading-relaxed max-w-xl">
-                757 Defense delivers aggressive, trial-tested criminal and DUI representation across Virginia Beach, Norfolk, Chesapeake, and Hampton Roads courts. Founded by former prosecutors, we know how the Commonwealth builds its case—and how to protect your freedom.
+                757 Defense delivers aggressive, trial-tested criminal and DUI representation across Virginia Beach, Norfolk, Chesapeake, and Hampton Roads courts. 
               </p>
 
             </div>

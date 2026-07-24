@@ -87,10 +87,10 @@ export default function PopupLeadModal({ onOpenConsultation }) {
 
               <div className="space-y-2">
                 <h2 className="font-crimson text-3xl sm:text-4xl font-bold text-[#F5F2ED] leading-tight">
-                  Arrested or Facing Charges in Hampton Roads?
+                  Are you facing charges in Hampton Roads Courts?
                 </h2>
                 <p className="text-xs text-[#D8D4CE]/80 font-light max-w-sm mx-auto">
-                  Get immediate, 100% confidential legal counsel from our top-rated Virginia Beach & Norfolk trial lawyers.
+                 For Legal Consultation, Contact one top ranked Virgina Beach & Norfolk Lawyers.
                 </p>
               </div>
 
