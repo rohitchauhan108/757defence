@@ -8,29 +8,20 @@ import {
   ShieldAlert, 
   Menu, 
   X, 
-  ChevronDown, 
   MessageSquare
 } from 'lucide-react';
 
 export default function Navbar({ currentPath, navigate, onOpenConsultation, onOpenAIAdvisor }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [pageDropdownOpen, setPageDropdownOpen] = useState(false);
 
-  const navLinks = [
-    { label: 'HOME', path: '/' },
-    { label: 'ABOUT', path: '/about' },
-    { label: 'PRACTICE AREAS', path: '/practice-areas' },
-    { label: 'CASE RESULTS', path: '/case-results' },
-    { label: 'ATTORNEYS', path: '/attorneys' },
-    { label: 'NEWS', path: '/blog' },
-    { label: 'CONTACT', path: '/contact' }
-  ];
-
-  const subPages = [
-    { label: 'Our Attorneys', path: '/attorneys' },
-    { label: 'Practice Specialties', path: '/practice-areas' },
-    { label: 'Case Victories', path: '/case-results' },
-    { label: 'Consultation', path: '/contact' }
+  const navLabels = [
+    'HOME',
+    'ABOUT',
+    'PRACTICE AREAS',
+    'CASE RESULTS',
+    'ATTORNEYS',
+    'NEWS',
+    'CONTACT'
   ];
 
   return (
@@ -76,11 +67,8 @@ export default function Navbar({ currentPath, navigate, onOpenConsultation, onOp
         <div className="flex justify-between items-center h-22">
           
           {/* Logo */}
-          <div 
-            onClick={() => navigate('/')} 
-            className="flex items-center gap-3 cursor-pointer group"
-          >
-            <div className="w-10 h-10 border border-[#D9AD74] flex items-center justify-center text-[#D9AD74] group-hover:bg-[#D9AD74] group-hover:text-[#0F0F0F] transition-colors rounded-xs">
+          <div className="flex items-center gap-3 select-none">
+            <div className="w-10 h-10 border border-[#D9AD74] flex items-center justify-center text-[#D9AD74] rounded-xs">
               <ShieldAlert className="w-6 h-6" />
             </div>
             <div>
@@ -95,61 +83,16 @@ export default function Navbar({ currentPath, navigate, onOpenConsultation, onOp
             </div>
           </div>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Nav Labels (Non-clickable static text) */}
           <div className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => {
-              const isActive = currentPath === link.path;
-
-              if (link.hasDropdown) {
-                return (
-                  <div 
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => setPageDropdownOpen(true)}
-                    onMouseLeave={() => setPageDropdownOpen(false)}
-                  >
-                    <button
-                      onClick={() => navigate(link.path)}
-                      className={`flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.15em] transition-colors py-2 cursor-pointer ${
-                        isActive ? 'text-[#D9AD74]' : 'text-[#F5F2ED]/80 hover:text-[#D9AD74]'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                      <ChevronDown className="w-3 h-3 text-[#D9AD74]" />
-                    </button>
-
-                    {pageDropdownOpen && (
-                      <div className="absolute top-full left-0 w-48 bg-[#121110] border border-[#D9AD74]/30 shadow-2xl py-2 z-50">
-                        {subPages.map((sub) => (
-                          <button
-                            key={sub.label}
-                            onClick={() => {
-                              setPageDropdownOpen(false);
-                              navigate(sub.path);
-                            }}
-                            className="w-full text-left px-4 py-2 text-xs text-[#D8D4CE] hover:text-[#D9AD74] hover:bg-[#D9AD74]/10 transition-colors uppercase tracking-wider font-medium cursor-pointer"
-                          >
-                            {sub.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              return (
-                <button
-                  key={link.label}
-                  onClick={() => navigate(link.path)}
-                  className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors py-2 cursor-pointer ${
-                    isActive ? 'text-[#D9AD74]' : 'text-[#F5F2ED]/80 hover:text-[#D9AD74]'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              );
-            })}
+            {navLabels.map((label) => (
+              <span
+                key={label}
+                className="text-xs font-semibold uppercase tracking-[0.15em] text-[#F5F2ED]/70 py-2 cursor-default"
+              >
+                {label}
+              </span>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -164,22 +107,16 @@ export default function Navbar({ currentPath, navigate, onOpenConsultation, onOp
 
         </div>
 
-        {/* Mobile Nav Menu */}
+        {/* Mobile Nav Menu (Static text items) */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-[#121110] border-t border-[#D9AD74]/20 p-4 space-y-2">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  navigate(link.path);
-                }}
-                className={`block w-full text-left px-3 py-2 text-xs font-semibold uppercase tracking-widest ${
-                  currentPath === link.path ? 'text-[#D9AD74]' : 'text-[#F5F2ED]/80 hover:text-[#D9AD74]'
-                }`}
+            {navLabels.map((label) => (
+              <span
+                key={label}
+                className="block w-full px-3 py-2 text-xs font-semibold uppercase tracking-widest text-[#F5F2ED]/70 cursor-default"
               >
-                {link.label}
-              </button>
+                {label}
+              </span>
             ))}
           </div>
         )}
