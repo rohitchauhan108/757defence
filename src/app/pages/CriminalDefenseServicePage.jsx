@@ -52,7 +52,7 @@ export default function CriminalDefenseServicePage({ navigate, onOpenConsultatio
               </span>
             </div>
             <h1 className="font-crimson text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#F5F2ED] tracking-wide leading-[1.05]">
-              defense <span className="text-[#D9AD74]">criminal attorney</span>
+              Defense <span className="text-[#D9AD74]">Criminal Attorney</span>
             </h1>
             <div className="flex flex-wrap gap-3 pt-4">
               <a href="tel:7579079075" className="inline-flex items-center gap-2.5 px-7 py-4 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] rounded-xs shadow-2xl transition-all group">
