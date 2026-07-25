@@ -1,7 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
+
+const OFFICE_ADDRESS = "2400 Princess Anne Road, Virginia Beach, VA 23456";
+const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent("757 Defense " + OFFICE_ADDRESS)}&output=embed`;
+const GOOGLE_MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(OFFICE_ADDRESS)}`;
 
 export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -69,16 +73,58 @@ export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
               </div>
             </div>
 
-            <div className="bg-[#181512] border border-[#D9AD74]/30 rounded-xs p-6 space-y-3 text-center">
-              <ShieldAlert className="w-8 h-8 text-[#D9AD74] mx-auto" />
-              <h4 className="font-crimson text-base font-bold text-[#F5F2ED]">Instant AI Case Evaluator</h4>
-              <p className="text-xs text-[#D8D4CE]/70 font-light">Ask initial Virginia legal questions or evaluate charges 24/7.</p>
-              <button
-                onClick={onOpenAIAdvisor}
-                className="w-full bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold py-2.5 uppercase text-xs tracking-widest transition-colors rounded-xs cursor-pointer"
-              >
-                Launch AI Case Evaluator
-              </button>
+            {/* Google Map Mini Embed — Replaces AI Evaluator */}
+            <div className="relative bg-[#181512] border border-[#D9AD74]/30 rounded-xs overflow-hidden shadow-xl group">
+              <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-[#12100E] via-[#12100E]/90 to-transparent p-4 pb-8">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-full bg-[#D9AD74]/15 border border-[#D9AD74]/30 flex items-center justify-center">
+                      <MapPin className="w-4 h-4 text-[#D9AD74]" />
+                    </div>
+                    <div>
+                      <h4 className="font-crimson text-sm font-bold text-[#F5F2ED] leading-tight">Find Our Office</h4>
+                      <p className="text-[10px] text-[#D8D4CE]/60 leading-tight">Virginia Beach, VA</p>
+                    </div>
+                  </div>
+                  <a 
+                    href={GOOGLE_MAPS_DIRECTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] text-[10px] font-bold uppercase tracking-widest rounded-xs transition-colors"
+                  >
+                    <Navigation className="w-3 h-3" />
+                    <span>Directions</span>
+                  </a>
+                </div>
+              </div>
+              <div className="relative h-64 sm:h-72 lg:h-80 w-full">
+                <iframe
+                  title="757 Defense - Virginia Beach Office Map"
+                  src={GOOGLE_MAPS_EMBED_URL}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full grayscale-[20%] contrast-110 saturate-[1.1]"
+                />
+              </div>
+              {/* Bottom info strip */}
+              <div className="bg-[#0F0E0C] border-t border-[#D9AD74]/20 px-5 py-3 flex items-center justify-between gap-3">
+                <p className="text-[10px] text-[#D8D4CE]/70 font-light leading-snug truncate">
+                  2400 Princess Anne Rd, Virginia Beach
+                </p>
+                <a 
+                  href={GOOGLE_MAPS_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-[10px] font-bold uppercase tracking-widest text-[#D9AD74] hover:text-white transition-colors flex items-center gap-1"
+                >
+                  <MapPin className="w-3 h-3" />
+                  <span>View on Map</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -94,7 +140,7 @@ export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
                 <CheckCircle2 className="w-12 h-12 text-[#D9AD74] mx-auto" />
                 <h3 className="font-crimson text-xl font-bold text-[#F5F2ED]">Message Transmitted</h3>
                 <p className="text-xs text-[#D8D4CE]/80 font-light">
-                  Thank you. Your message has been routed to senior partners Nadim Al-Mansur and J. Ryan Stirling. An attorney will respond shortly.
+                  Thank you. Your message has been routed to the senior partners. An attorney will respond shortly.
                 </p>
                 <button
                   onClick={() => setFormSubmitted(false)}
@@ -183,6 +229,7 @@ export default function ContactPage({ onOpenConsultation, onOpenAIAdvisor }) {
 
         </div>
       </div>
+
 
     </div>
   );

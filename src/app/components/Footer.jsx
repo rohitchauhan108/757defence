@@ -50,57 +50,50 @@ export default function Footer({ navigate }) {
             </div>
           </div>
 
-          {/* Column 2: Criminal Offenses */}
+          {/* Column 2: Quick Links */}
           <div>
             <h3 className="font-crimson text-base font-bold text-[#F5F2ED] uppercase tracking-wider mb-4 border-b border-[#D9AD74]/30 pb-1">
-              CRIMINAL OFFENSES
+              QUICK LINKS
             </h3>
             <ul className="space-y-2.5 text-xs text-[#D8D4CE]/70 font-light">
               {[
-                'Assault and Battery',
-                'Drug Crimes',
-                'Theft/Property Crimes',
-                'Violent Offenses',
-                'Weapons/Firearms',
-                'Domestic Violence',
-                'Protective Orders',
-                'Juvenile Offenses'
+                { label: 'HOME', path: '/' },
+                { label: 'OUR ATTORNEYS', path: '/attorneys' },
+                { label: 'FAQS', path: '/faqs' },
+                { label: 'BLOG', path: '/blog' },
+                { label: 'CONTACT US', path: '/contact' }
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <button 
-                    onClick={() => navigate('/practice-areas')}
-                    className="hover:text-[#D9AD74] transition-colors cursor-pointer flex items-center gap-1.5"
+                    onClick={() => navigate && navigate(item.path)}
+                    className="hover:text-[#D9AD74] transition-colors cursor-pointer flex items-center gap-1.5 group"
                   >
-                    <ArrowRight className="w-2.5 h-2.5 text-[#D9AD74]" />
-                    <span>{item}</span>
+                    <ArrowRight className="w-2.5 h-2.5 text-[#D9AD74] group-hover:translate-x-0.5 transition-transform" />
+                    <span>{item.label}</span>
                   </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: What We Do */}
+          {/* Column 3: Our Services */}
           <div>
             <h3 className="font-crimson text-base font-bold text-[#F5F2ED] uppercase tracking-wider mb-4 border-b border-[#D9AD74]/30 pb-1">
-              WHAT WE DO
+              OUR SERVICES
             </h3>
             <ul className="space-y-2.5 text-xs text-[#D8D4CE]/70 font-light">
               {[
-                'Bond Hearings and Appeals',
-                'Criminal Discovery',
-                'Evidentiary Motions',
-                'Motions to Suppress Evidence',
-                'Preliminary Hearings',
-                'Probation Hearings',
-                'Bench and Jury Trials'
+                { label: 'Defense Criminal Attorney', path: '/services/criminal-defense' },
+                { label: 'Traffic Ticket Lawyer', path: '/services/traffic-ticket' },
+                { label: 'DUI/DWI Lawyer', path: '/services/dui-dwi' }
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <button 
-                    onClick={() => navigate('/practice-areas')}
-                    className="hover:text-[#D9AD74] transition-colors cursor-pointer flex items-center gap-1.5"
+                    onClick={() => navigate && navigate(item.path)}
+                    className="hover:text-[#D9AD74] transition-colors cursor-pointer flex items-center gap-1.5 group"
                   >
-                    <ArrowRight className="w-2.5 h-2.5 text-[#D9AD74]" />
-                    <span>{item}</span>
+                    <ArrowRight className="w-2.5 h-2.5 text-[#D9AD74] group-hover:translate-x-0.5 transition-transform" />
+                    <span>{item.label}</span>
                   </button>
                 </li>
               ))}
