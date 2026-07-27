@@ -224,7 +224,7 @@ export default function Footer({ navigate }) {
                     href="tel:7579079075"
                     className="hover:text-[#D9AD74] font-semibold text-[#F5F2ED]"
                   >
-                    (757) 907-9075
+                     7579079075
                   </a>
                 </p>
                 <p>
@@ -259,7 +259,7 @@ export default function Footer({ navigate }) {
                 href="tel:7579079075"
                 className="font-bold text-[#F5F2ED] hover:text-[#D9AD74]"
               >
-                (757) 907-9075
+                 7579079075
               </a>
             </div>
           </div>
