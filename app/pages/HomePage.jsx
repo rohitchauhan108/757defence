@@ -540,7 +540,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. 55+ YEARS EXPERIENCE BANNER */}
-      <section className="bg-[#0B0907] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20">
+      <section className="bg-[#FAF8F5] text-[#12100E] py-24 px-6 lg:px-8 border-t border-black/5">
         <div className="max-w-7xl mx-auto space-y-12">
           
           <motion.div 
@@ -602,7 +602,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. LATEST LEGAL BLOG ARTICLES */}
-      <section className="bg-[#FAF8F5] text-[#12100E] py-24 px-6 lg:px-8 border-t border-black/5">
+      {/* <section className="bg-[#FAF8F5] text-[#12100E] py-24 px-6 lg:px-8 border-t border-black/5">
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="text-center space-y-2">
@@ -659,7 +659,7 @@ export default function HomePage() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* 10. NEWSLETTER SECTION */}
       <section className="relative bg-[#0E0C0A] text-[#F5F2ED] py-24 px-6 lg:px-8 border-t border-[#D9AD74]/20 overflow-hidden">

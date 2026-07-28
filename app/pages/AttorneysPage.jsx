@@ -208,7 +208,7 @@ export default function AttorneysPage() {
                     <span className="text-xs font-bold uppercase tracking-wider">Email Attorney</span>
                   </a>
                   <button 
-                    onClick={() => onOpenConsultation && onOpenConsultation()}
+                  onClick={() => router.push('/contact')}
                     className="flex items-center gap-2.5 px-5 py-3 bg-[#12100E] hover:bg-[#D9AD74] hover:text-[#0F0F0F] text-white rounded-xs border-2 border-[#12100E] hover:border-[#D9AD74] transition-all group"
                   >
                     <Gavel className="w-4 h-4 text-[#D9AD74] group-hover:text-[#0F0F0F]" />
@@ -312,7 +312,7 @@ export default function AttorneysPage() {
                     <span className="text-xs font-bold uppercase tracking-wider">{gregory.phone}</span>
                   </a>
                   <button 
-                    onClick={() => onOpenConsultation && onOpenConsultation()}
+                  onClick={() => router.push('/contact')}
                     className="flex items-center gap-2.5 px-5 py-3 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] rounded-xs transition-colors group"
                   >
                     <Gavel className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -492,7 +492,7 @@ export default function AttorneysPage() {
                     <span className="text-xs font-bold uppercase tracking-wider text-[#12100E]">Award Winning</span>
                   </div>
                   <button 
-                    onClick={() => onOpenConsultation && onOpenConsultation()}
+                   onClick={() => router.push('/contact')}
                     className="text-xs font-bold uppercase tracking-wider text-[#D9AD74] hover:text-black flex items-center gap-1.5 group/btn"
                   >
                     <span>Get Defense</span>
@@ -548,7 +548,7 @@ export default function AttorneysPage() {
                     <span className="text-xs font-bold uppercase tracking-wider">Tough As Nails</span>
                   </div>
                   <button 
-                    onClick={() => onOpenConsultation && onOpenConsultation('DUI Defense')}
+                    onClick={() => router.push('/contact')}
                     className="text-xs font-bold uppercase tracking-wider text-[#D9AD74] hover:text-white flex items-center gap-1.5 group/btn"
                   >
                     <span>Fight DUI Charges</span>

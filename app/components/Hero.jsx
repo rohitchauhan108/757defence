@@ -93,25 +93,13 @@ export default function Hero() {
               className="pt-2 flex items-center gap-4 flex-wrap"
             >
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onOpenConsultation) onOpenConsultation();
-                }}
+                 onClick={() => router.push('/contact')}
                 className="px-8 py-3.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-poppins font-bold text-xs uppercase tracking-[0.2em] transition-all shadow-2xl hover:scale-105 transform cursor-pointer rounded-xs"
               >
                 FREE CASE REVIEW
               </button>
 
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onOpenAIAdvisor) onOpenAIAdvisor();
-                }}
-                className="px-6 py-3.5 border border-[#D9AD74]/50 hover:border-[#D9AD74] text-[#D9AD74] hover:bg-[#D9AD74]/10 font-poppins font-bold text-xs uppercase tracking-[0.15em] transition-all cursor-pointer rounded-xs flex items-center gap-2"
-              >
-                <span>AI Case Evaluator</span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              </button>
+            
             </motion.div>
 
           </motion.div>

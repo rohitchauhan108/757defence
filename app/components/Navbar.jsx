@@ -97,7 +97,7 @@ export default function Navbar() {
       dropdown: servicesDropdown
     },
     { label: 'FAQS', path: '/faqs' },
-    { label: 'BLOG', path: '/blog' },
+    // { label: 'BLOG', path: '/blog' },
     { label: 'CONTACT US', path: '/contact' }
   ];
 
@@ -134,21 +134,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenAIAdvisor}
-              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#D9AD74]/10 hover:bg-[#D9AD74] hover:text-[#0F0F0F] text-[#D9AD74] transition-all border border-[#D9AD74]/30 text-[11px] font-medium rounded-xs cursor-pointer"
-            >
-              <MessageSquare className="w-3 h-3" />
-              <span>AI Case Evaluator</span>
-            </button>
-            <button
-              onClick={() => onOpenConsultation && onOpenConsultation()}
-              className="px-3.5 py-1 bg-[#D9AD74] text-[#0F0F0F] hover:bg-[#B88D51] text-[11px] font-bold uppercase tracking-wider transition-colors rounded-xs shadow-sm cursor-pointer"
-            >
-              Free Case Review
-            </button>
-          </div>
         </div>
       </div>
 

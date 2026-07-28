@@ -60,7 +60,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="tel:7579079075" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]"> 7579079075</a>
+                  <a href="tel:7579079075" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]">Phone: 7579079075</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Printer className="w-4 h-4 text-[#D9AD74] shrink-0" />

@@ -20,8 +20,8 @@ export default function FloatingSocialWidgets() {
   const [hoveredSocial, setHoveredSocial] = useState(null);
 
   // Phone number & WhatsApp
-  const phoneFormatted = "(757) 757-3333";
-  const rawPhone = "17577573333";
+  const phoneFormatted = "(757)-907-9075";
+  const rawPhone = "7579079075";
   const whatsappUrl = `https://wa.me/${rawPhone}?text=${encodeURIComponent("Hello 757 Defense Lawyers, I need emergency legal assistance regarding a case in Virginia.")}`;
 
   // Social media channels
