@@ -1,15 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { blogPosts } from '../data/blogPosts.js';
-import { BookOpen, X, Calendar, User, ArrowRight } from 'lucide-react';
+import { BookOpen, Calendar, User, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../AppContext.jsx';
 
 export default function BlogPage() {
   const router = useRouter();
   const { onOpenConsultation } = useApp();
-  const [activePost, setActivePost] = useState(null);
 
   const featuredPost = blogPosts[0];
   const remainingPosts = blogPosts.slice(1);
@@ -35,7 +34,7 @@ export default function BlogPage() {
         {/* Featured Post (Top) */}
         {featuredPost && (
           <div
-            onClick={() => setActivePost(featuredPost)}
+            onClick={() => router.push(`/blog/${featuredPost.id}`)}
             className="bg-[#141414] border border-white/10 rounded-2xl overflow-hidden hover:border-[#D9AD74]/50 transition-all cursor-pointer group grid grid-cols-1 lg:grid-cols-12 gap-0"
           >
             <div className="lg:col-span-7 h-72 lg:h-auto overflow-hidden relative bg-[#0F0F0F]">
@@ -78,7 +77,7 @@ export default function BlogPage() {
           {remainingPosts.map((post) => (
             <div
               key={post.id}
-              onClick={() => setActivePost(post)}
+              onClick={() => router.push(`/blog/${post.id}`)}
               className="bg-[#141414] border border-white/10 rounded-xl overflow-hidden hover:border-[#D9AD74]/50 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -112,58 +111,6 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-
-      {/* Reader Modal */}
-      {activePost && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-fade-in font-sans">
-          <div className="bg-[#141414] border border-white/10 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto text-[#F5F2ED] p-6 sm:p-8 relative shadow-2xl space-y-6">
-            <button
-              onClick={() => setActivePost(null)}
-              className="absolute top-4 right-4 p-2 rounded text-[#F5F2ED]/60 hover:text-[#F5F2ED] hover:bg-white/5 transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <div className="space-y-2 border-b border-white/10 pb-4">
-              <span className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest">{activePost.category}</span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#F5F2ED]">{activePost.title}</h2>
-              <div className="text-[10px] text-[#F5F2ED]/50 uppercase tracking-wider flex items-center gap-4">
-                <span>By {activePost.author}</span>
-                <span>•</span>
-                <span>Published {activePost.date}</span>
-              </div>
-            </div>
-
-            <div className="h-64 rounded-xl overflow-hidden bg-[#0F0F0F]">
-              <img
-                src={activePost.image}
-                alt={activePost.title}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-
-            <div className="text-[#F5F2ED]/70 text-xs font-light leading-relaxed whitespace-pre-line space-y-4">
-              {activePost.content}
-            </div>
-
-            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-              <span className="text-xs text-[#F5F2ED]/50 font-light">Have questions about this topic?</span>
-              <button
-                onClick={() => {
-                  const topic = activePost.category;
-                  setActivePost(null);
-                  onOpenConsultation(topic);
-                }}
-                className="bg-[#D9AD74] text-[#0F0F0F] font-bold px-5 py-2.5 text-xs uppercase tracking-widest hover:bg-[#B88D51] transition-colors"
-              >
-                Schedule Legal Consult
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }
