@@ -143,7 +143,7 @@ export default function ExperienceTrustSection() {
               {/* Stat 1 */}
               <div className="pr-4 border-r border-[#D9AD74]/20 space-y-1">
                 <div className="font-crimson text-3xl sm:text-4xl font-bold text-[#F5F2ED]">
-                  1,450+
+                  2000+
                 </div>
                 <div className="text-[11px] sm:text-xs text-[#D8D4CE]/70 uppercase tracking-wider font-light">
                   Cases Defended
@@ -173,10 +173,10 @@ export default function ExperienceTrustSection() {
               {/* Stat 4 */}
               <div className="pl-4 border-t border-[#D9AD74]/20 pt-6 space-y-1">
                 <div className="font-crimson text-3xl sm:text-4xl font-bold text-[#F5F2ED]">
-                  500+
+                  100’s
                 </div>
                 <div className="text-[11px] sm:text-xs text-[#D8D4CE]/70 uppercase tracking-wider font-light">
-                  Full Case Dismissals
+                  of satisfied clients
                 </div>
               </div>
 

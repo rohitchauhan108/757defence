@@ -109,7 +109,7 @@ export default function HomePage() {
               </h2>
               <div className="pt-2">
                 <button 
-                  onClick={() => router.push('/about')}
+                  onClick={() => router.push('/attorneys')}
                   className="px-8 py-3.5 bg-[#D9AD74] hover:bg-[#B88D51] text-[#0F0F0F] font-bold text-xs uppercase tracking-[0.15em] transition-all shadow-md cursor-pointer rounded-xs"
                 >
                   READ OUR STORY
@@ -122,7 +122,7 @@ export default function HomePage() {
                 757 Defense delivers aggressive, trial-tested criminal representation across Virginia Beach, Norfolk, Chesapeake, Portsmouth, Hampton, and Newport News courts. Founded by former public defender, we know exactly how the Commonwealth builds its case—and how to dismantle it.
               </p>
               <p>
-                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution.
+                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution or other criminal charges you will need an expert in criminal defense. To protect your rights your good name and your freedom
               </p>
             </div>
           </motion.div>
@@ -179,7 +179,7 @@ export default function HomePage() {
             </h2>
 
             <p className="text-[#D8D4CE]/70 text-xs sm:text-sm font-light leading-relaxed">
-              When your freedom, reputation, and military clearance are on the line, you need criminal attorneys who know local judges and Commonwealth prosecutors inside and out.
+              When your freedom, reputation, and your well being are on the line, you need criminal attorneys who know local judges and Commonwealth prosecutors inside and out.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-light text-[#D8D4CE]">
@@ -219,42 +219,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. TIMELINE / JOURNEY SECTION */}
-      {/* <section className="bg-[#FAF8F5] text-[#12100E] py-20 px-6 lg:px-8 border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative">
-            <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-[#D9AD74]/40 z-0" />
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-              {[
-                { year: "2012", title: "FIRM FOUNDED", desc: "Established in Virginia Beach to defend citizens against unjust criminal charges." },
-                { year: "2016", title: "NORFOLK EXPANSION", desc: "Opened secondary office near Norfolk Federal & General District Courts." },
-                { year: "2019", title: "UCMJ MILITARY PRACTICE", desc: "Added specialized JAG military defense for service members at Naval Station Norfolk." },
-                { year: "2024", title: "500+ VICTORIES", desc: "Surpassed 500 total criminal charge dismissals and complete acquittals." }
-              ].map((item, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  className="space-y-3"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#12100E] text-[#D9AD74] font-crimson font-bold text-sm flex items-center justify-center border-2 border-[#D9AD74] shadow-md">
-                    {item.year}
-                  </div>
-                  <h3 className="font-crimson text-lg font-bold text-[#12100E] uppercase tracking-wider">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#524E48] font-light leading-relaxed">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
+      
 
       {/* 5. STATS & FREE CASE EVALUATION APPOINTMENT FORM */}
       <section className="bg-[#FAF8F5] text-[#12100E] pb-24 px-6 pt-24 lg:px-8">
@@ -277,7 +242,7 @@ export default function HomePage() {
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-[#524E48] font-light leading-relaxed">
               <p>
-                We inspect every police breathalyzer calibration, officer bodycam recording, and field sobriety test protocol for constitutional violations.
+                We review common wealth evidence :Inspect every police breathalyzer calibration, officer bodycam recording, witness testimonies and field sobriety test protocol for constitutional violations.
               </p>
               <p>
                 From motion hearings to jury trials, 757 Defense leaves no stone unturned to safeguard your driving record and freedom.
@@ -285,10 +250,9 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { num: "1,450+", label: "Cases Defended" },
-              { num: "98%", label: "DUI Charge Reduction" },
+              { num: "2000+", label: "Cases Defended" },
               { num: "24/7", label: "Emergency Hotline" },
               { num: "100%", label: "Confidential Review" }
             ].map((stat, idx) => (

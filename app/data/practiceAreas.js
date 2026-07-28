@@ -12,7 +12,6 @@ export const practiceAreas = [
       "Breath & Blood Test Refusal (VA Code § 18.2-268.3)",
       "Underage DUI & Commercial Driver (CDL) Violations",
       "Ignition Interlock & Restricted License Applications",
-      "Military DUI Defense (Naval Station Norfolk & NAS Oceana)"
     ],
     stats: "1,500+ DUI Cases Reduced or Dismissed",
     featuredCase: "DUI charge dismissed after challenging invalid breathalyzer calibration logs at Virginia Beach General District Court.",
@@ -30,7 +29,6 @@ export const practiceAreas = [
       "Reckless Driving General / Endangerment (VA Code § 46.2-852)",
       "Out-of-State Driver Representation (No Court Appearance Needed)",
       "Driving on Suspended or Revoked License Defense",
-      "CDL Driver Protection & DMV Points Reduction",
       "Aggressive Driving & Drag Racing Charges"
     ],
     stats: "98% Case Reduction Rate to Non-Criminal Infraction",
@@ -73,26 +71,6 @@ export const practiceAreas = [
     ],
     stats: "95% Motion to Suppress Success Rate",
     featuredCase: "PWID felony drug charges thrown out after judge granted motion to suppress unconstitutional vehicle search.",
-    leadAttorney: "Nadim Al-Mansur, Esq."
-  },
- 
-  {
-    id: "sex-crimes-internet",
-    slug: "sex-crimes-internet",
-    title: "Sex Crimes & Internet Defense",
-    icon: "FileCheck",
-    shortDescription: "Discreet, confidential, and aggressive defense against sexual assault, solicitation, and internet crime allegations.",
-    fullDescription: "Accusations of sexual misconduct carry catastrophic social stigma and life-altering consequences, including mandatory sex offender registration. Our defense team conducts immediate, discreet investigations to protect your reputation, challenge digital evidence, and defeat false accusations.",
-    keyServices: [
-      "Sexual Assault & Rape Defense",
-      "Computer Sex Crimes & Solicitation Sting Defense",
-      "Prostitution & Solicitation Defense",
-      "Sex Offender Registry Removal & Appeals",
-      "Indecent Exposure & Annoyance Charges",
-      "Title IX University Hearing Defense"
-    ],
-    stats: "Complete Confidentiality & Protection",
-    featuredCase: "Pre-indictment dismissal of solicitation allegations following forensic analysis of digital messaging logs.",
     leadAttorney: "Nadim Al-Mansur, Esq."
   },
   {

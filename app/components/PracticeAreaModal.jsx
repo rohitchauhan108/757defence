@@ -46,29 +46,13 @@ export default function PracticeAreaModal({ area, onClose, onOpenConsultation })
           </div>
         </div>
 
-        {/* Featured Benchmark Case & Attorney */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="bg-[#0F0F0F] p-4 rounded-xl border border-white/10">
-            <span className="text-[10px] text-[#D9AD74] uppercase font-bold tracking-widest">Benchmark Victory</span>
-            <p className="text-xs text-[#F5F2ED]/80 mt-1 font-light">{area.featuredCase}</p>
-          </div>
-
-          <div className="bg-[#0F0F0F] p-4 rounded-xl border border-white/10 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#D9AD74]/20 flex items-center justify-center text-[#D9AD74] shrink-0">
-              <User className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-[10px] text-[#F5F2ED]/50 uppercase font-bold block">Lead Practice Director</span>
-              <span className="text-xs text-[#F5F2ED] font-bold">{area.leadAttorney}</span>
-            </div>
-          </div>
-        </div>
+      
 
         {/* Call to Action Bar */}
         <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-[#F5F2ED]/60">
             <span className="block text-[10px] uppercase tracking-wider">Confidential Legal Review</span>
-            <span className="block text-[#F5F2ED] font-bold">+1 (800) 555-0199</span>
+            <span className="block text-[#F5F2ED] font-bold">(757)-907-9075</span>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">

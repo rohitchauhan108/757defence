@@ -194,7 +194,7 @@ export default function PopupLeadModal() {
             <div className="bg-[#181512] border-t border-[#D9AD74]/20 p-4 text-center flex items-center justify-center gap-3">
               <Phone className="w-4 h-4 text-[#D9AD74]" />
               <span className="text-xs text-[#D8D4CE]">
-                24/7 Emergency Hotline: <a href="tel:7577573333" className="text-[#D9AD74] font-bold hover:underline">(757) 757-3333</a>
+                24/7 Emergency Hotline: <a href="tel:7579079075" className="text-[#D9AD74] font-bold hover:underline">757-907-9075</a>
               </span>
             </div>
 
