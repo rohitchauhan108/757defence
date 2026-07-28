@@ -135,19 +135,6 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute top-4 right-4 sm:top-8 sm:right-8 bg-[#121110] text-[#F5F2ED] p-4 sm:p-6 border border-[#D9AD74]/40 shadow-2xl flex items-center gap-4 z-10 max-w-xs rounded-xs">
-              <div className="w-10 h-10 border border-[#D9AD74] rounded-full flex items-center justify-center text-[#D9AD74] shrink-0">
-                <Award className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="font-crimson text-sm font-bold uppercase tracking-wider text-[#D9AD74] block">
-                  TOP 100 TRIAL LAWYERS
-                </span>
-                <span className="text-xs text-[#D8D4CE]/80 font-light">
-                  Virginia Criminal Defense Association
-                </span>
-              </div>
-            </div>
 
             <div className="w-full h-[320px] sm:h-[450px] overflow-hidden border border-black/10 shadow-xl rounded-xs">
               <img

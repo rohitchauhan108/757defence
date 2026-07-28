@@ -189,8 +189,8 @@ export default function Navbar() {
                   onClick={() => !item.dropdown && handleNavigate(item.path)}
                   className={`relative text-xs font-semibold uppercase tracking-[0.15em] py-2 flex items-center gap-1.5 transition-all ${
                     isActive(item.path)
-                      ? 'text-[#D9AD74]'
-                      : 'text-[#F5F2ED]/70 hover:text-[#D9AD74]'
+                      ? 'text-[#D9AD74] cursor-pointer'
+                      : 'text-[#F5F2ED]/70 hover:text-[#D9AD74] cursor-pointer'
                   }`}
                 >
                   <span>{item.label}</span>
