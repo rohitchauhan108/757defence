@@ -122,7 +122,7 @@ export default function HomePage() {
                 757 Defense delivers aggressive, trial-tested criminal representation across Virginia Beach, Norfolk, Chesapeake, Portsmouth, Hampton, and Newport News courts. Founded by former public defender, we know exactly how the Commonwealth builds its case—and how to dismantle it.
               </p>
               <p>
-                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution or other criminal charges you will need an expert in criminal defense. To protect your rights your good name and your freedom
+                Whether you face DUI charges, reckless driving, domestic violence allegations, drug distribution or other criminal charges you will need an expert in criminal defense to protect your rights your good name and your freedom
               </p>
             </div>
           </motion.div>
@@ -242,7 +242,7 @@ export default function HomePage() {
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-[#524E48] font-light leading-relaxed">
               <p>
-                We review common wealth evidence :Inspect every police breathalyzer calibration, officer bodycam recording, witness testimonies and field sobriety test protocol for constitutional violations.
+                We review Commonwealth’s evidence : inspect every police breathalyzer calibration, officer bodycam recording, witness testimonies and field sobriety test protocol for constitutional violations.
               </p>
               <p>
                 From motion hearings to jury trials, 757 Defense leaves no stone unturned to safeguard your driving record and freedom.

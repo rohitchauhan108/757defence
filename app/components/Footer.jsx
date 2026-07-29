@@ -174,7 +174,7 @@ export default function Footer({ navigate }) {
             </div>
             <div>
               <span className="text-[11px] uppercase text-[#D8D4CE]/55 block font-semibold tracking-wider">
-                Phone (24/7)
+                Call / Text (24/7)
               </span>
               <a
                 href="tel:7579079075"

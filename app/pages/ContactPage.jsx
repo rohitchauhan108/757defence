@@ -64,7 +64,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Printer className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <span>Fax: (757) 782-9982</span>
+                  <span>Call / Text (24/7) : (757) 782-9982</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#D9AD74] shrink-0" />
