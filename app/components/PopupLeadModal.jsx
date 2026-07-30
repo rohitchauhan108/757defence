@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ShieldAlert, Phone, ShieldCheck, CheckCircle2, Lock } from 'lucide-react';
+import emailjs from '@emailjs/browser'; // Added missing import
 import { useApp } from '../AppContext.jsx';
 
 export default function PopupLeadModal() {
@@ -13,13 +14,14 @@ export default function PopupLeadModal() {
   const [practiceArea, setPracticeArea] = useState('DUI & DWI Defense');
   const [submitted, setSubmitted] = useState(false);
 
+  const form = useRef(null); // Form ref
+
   useEffect(() => {
-    // Check if user already dismissed or submitted in this session
     const hasSeenPopup = sessionStorage.getItem('757def_popup_dismissed');
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 3500); // 3.5 seconds delay
+      }, 3500); 
       return () => clearTimeout(timer);
     }
   }, []);
@@ -29,14 +31,28 @@ export default function PopupLeadModal() {
     sessionStorage.setItem('757def_popup_dismissed', 'true');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
     sessionStorage.setItem('757def_popup_dismissed', 'true');
+    
     setTimeout(() => {
       setIsOpen(false);
       setSubmitted(false);
     }, 3500);
+
+    try {
+      await emailjs.sendForm(
+        "service_tk7fl6c",
+        "template_fu8ue6u",
+        form.current, // Now correctly referenced
+        "nRX9QHFjD5JfN77Lz"
+      );
+
+      // Optional: alert("Message sent!");
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+    }
   };
 
   return (
@@ -92,7 +108,7 @@ export default function PopupLeadModal() {
                   Are you facing charges in Hampton Roads Courts?
                 </h2>
                 <p className="text-xs text-[#D8D4CE]/80 font-light max-w-sm mx-auto">
-                 For Legal Consultation, Contact one top ranked Virgina Beach & Norfolk Lawyers.
+                   For Legal Consultation, Contact one top ranked Virgina Beach & Norfolk Lawyers.
                 </p>
               </div>
 
@@ -114,13 +130,15 @@ export default function PopupLeadModal() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 pt-2 text-left">
+                // Added ref={form} to the form element
+                <form ref={form} onSubmit={handleSubmit} className="space-y-4 pt-2 text-left">
                   <div>
                     <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-wider block mb-1">
                       Full Name *
                     </label>
                     <input
                       type="text"
+                      name="name"
                       required
                       placeholder="e.g. John Smith"
                       value={fullName}
@@ -136,6 +154,7 @@ export default function PopupLeadModal() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
                         required
                         placeholder="(757) 000-0000"
                         value={phone}
@@ -150,6 +169,7 @@ export default function PopupLeadModal() {
                       </label>
                       <select
                         value={practiceArea}
+                        name="value"
                         onChange={(e) => setPracticeArea(e.target.value)}
                         className="w-full bg-[#161310] border border-white/10 rounded-xs px-3 py-3 text-xs text-[#F5F2ED] focus:outline-none focus:border-[#D9AD74]"
                       >
