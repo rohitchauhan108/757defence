@@ -15,7 +15,7 @@ export default function FullWidthSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
@@ -53,14 +53,14 @@ export default function FullWidthSlider() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition z-10"
+        className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/20 text-white p-3 rounded-full hover:bg-black/50 cursor-pointer transition z-10"
         aria-label="Previous Slide"
       >
         ❮
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition z-10"
+        className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/20 text-white p-3 rounded-full hover:bg-black/50 cursor-pointer transition z-10"
         aria-label="Next Slide"
       >
         ❯
