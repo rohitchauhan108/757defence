@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { motion } from "motion/react";
 import Hero from "../components/Hero.jsx";
 import ExperienceTrustSection from "../components/ExperienceTrustSection.jsx";
@@ -32,6 +32,7 @@ import {
   Scale,
   GraduationCap,
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function HomePage() {
   const router = useRouter();
@@ -76,6 +77,25 @@ export default function HomePage() {
       setTimeout(() => setNewsletterSubscribed(false), 4000);
     }
   };
+
+    const form = useRef(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.sendForm(
+        "service_tk7fl6c",
+        "template_eqpg39f",
+        form.current,
+        "nRX9QHFjD5JfN77Lz",
+      );
+
+      alert("Inquiry sent!");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
   return (
     <div className="bg-[#0B0A08] text-[#D8D4CE] font-poppins selection:bg-[#D9AD74] selection:text-[#0F0F0F]">
@@ -314,6 +334,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
+                    name="name"
                     placeholder="Full Name *"
                     value={apptName}
                     onChange={(e) => setApptName(e.target.value)}
@@ -322,6 +343,7 @@ export default function HomePage() {
                   />
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="Phone Number *"
                     value={apptPhone}
                     onChange={(e) => setApptPhone(e.target.value)}
@@ -333,6 +355,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address *"
                     value={apptEmail}
                     onChange={(e) => setApptEmail(e.target.value)}
@@ -341,6 +364,7 @@ export default function HomePage() {
                   />
                   <input
                     type="date"
+                    name="date"
                     value={apptDate}
                     onChange={(e) => setApptDate(e.target.value)}
                     required
@@ -350,6 +374,7 @@ export default function HomePage() {
 
                 <textarea
                   rows="3"
+                  name="message"
                   placeholder="Details of charge or court date (Virginia Beach, Norfolk, Chesapeake...)"
                   value={apptMessage}
                   onChange={(e) => setApptMessage(e.target.value)}
