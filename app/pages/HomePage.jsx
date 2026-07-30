@@ -290,6 +290,12 @@ export default function HomePage() {
             className="bg-[#EFE8DC] border border-[#D9AD74]/40 shadow-2xl rounded-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12"
           >
             <div className="lg:col-span-5 relative min-h-[320px]">
+              {/* <img
+                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop"
+                alt="757 Defense Courthouse Consultation"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              /> */}
               <Slider/>
             </div>
 
