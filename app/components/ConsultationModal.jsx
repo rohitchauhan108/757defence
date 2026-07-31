@@ -1,19 +1,37 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { X, ShieldAlert, CheckCircle2, User, Phone, Mail, FileText, AlertCircle, Clock } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import {
+  X,
+  ShieldAlert,
+  CheckCircle2,
+  User,
+  Phone,
+  Mail,
+  FileText,
+  AlertCircle,
+  Clock,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
 
-export default function ConsultationModal({ isOpen, onClose, initialPracticeArea = '' }) {
+export default function ConsultationModal({
+  isOpen,
+  onClose,
+  initialPracticeArea = "",
+}) {
   const [step, setStep] = useState(1);
-  const [practiceArea, setPracticeArea] = useState(initialPracticeArea || 'DUI & DWI Defense');
-  const [fullName, setFullName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [preferredDate, setPreferredDate] = useState('');
-  const [caseSummary, setCaseSummary] = useState('');
+  const [practiceArea, setPracticeArea] = useState(
+    initialPracticeArea || "DUI & DWI Defense",
+  );
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [preferredDate, setPreferredDate] = useState("");
+  const [caseSummary, setCaseSummary] = useState("");
   const [isEmergency, setIsEmergency] = useState(false);
   const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
+  const form = useRef(null);
 
   useEffect(() => {
     if (initialPracticeArea) {
@@ -23,14 +41,26 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
 
   if (!isOpen) return null;
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const res = await fetch('/api/case-evaluation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      // Send email using EmailJS
+      await emailjs.sendForm(
+        "service_tk7fl6c",
+        "template_eqpg39f",
+        form.current,
+        "nRX9QHFjD5JfN77Lz",
+      );
+
+      // Send data to your API
+      const res = await fetch("/api/case-evaluation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           practiceArea,
           fullName,
@@ -38,25 +68,28 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
           email,
           preferredDate,
           caseSummary,
-          isEmergency
-        })
+          isEmergency,
+        }),
       });
 
       const data = await res.json();
-      setLoading(false);
 
       if (data.success) {
         setConfirmation(data.confirmationCode);
-        setStep(4);
       } else {
-        setConfirmation('757-DEF-' + Math.floor(100000 + Math.random() * 900000));
-        setStep(4);
+        setConfirmation(
+          "757-DEF-" + Math.floor(100000 + Math.random() * 900000),
+        );
       }
+
+      setStep(4);
     } catch (err) {
       console.error(err);
-      setLoading(false);
-      setConfirmation('757-DEF-' + Math.floor(100000 + Math.random() * 900000));
+
+      setConfirmation("757-DEF-" + Math.floor(100000 + Math.random() * 900000));
       setStep(4);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -69,7 +102,6 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in font-poppins">
       <div className="bg-[#12100E] border border-[#D9AD74]/30 rounded-xs max-w-2xl w-full text-[#F5F2ED] p-6 sm:p-8 relative shadow-2xl space-y-6">
-        
         {/* Close Button */}
         <button
           onClick={resetForm}
@@ -84,21 +116,42 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
             Free 100% Confidential Case Evaluation
           </span>
           <h2 className="font-crimson text-2xl sm:text-3xl font-bold text-[#F5F2ED]">
-            {step === 4 ? "Consultation Confirmed" : "Schedule Free Case Evaluation"}
+            {step === 4
+              ? "Consultation Confirmed"
+              : "Schedule Free Case Evaluation"}
           </h2>
           <p className="text-[#D8D4CE]/60 text-xs mt-1 font-light">
-            Virginia Beach • Norfolk • Chesapeake • Portsmouth • Newport News Courts
+            Virginia Beach • Norfolk • Chesapeake • Portsmouth • Newport News
+            Courts
           </p>
         </div>
 
         {/* Step Progress Bar */}
         {step < 4 && (
           <div className="flex items-center justify-between gap-2 border-y border-[#D9AD74]/20 py-3 text-xs uppercase tracking-wider">
-            <span className={step >= 1 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"}>1. Criminal Charge</span>
+            <span
+              className={
+                step >= 1 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"
+              }
+            >
+              1. Criminal Charge
+            </span>
             <span className="text-[#D8D4CE]/20">→</span>
-            <span className={step >= 2 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"}>2. Incident Brief</span>
+            <span
+              className={
+                step >= 2 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"
+              }
+            >
+              2. Incident Brief
+            </span>
             <span className="text-[#D8D4CE]/20">→</span>
-            <span className={step >= 3 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"}>3. Schedule Call</span>
+            <span
+              className={
+                step >= 3 ? "text-[#D9AD74] font-bold" : "text-[#D8D4CE]/40"
+              }
+            >
+              3. Schedule Call
+            </span>
           </div>
         )}
 
@@ -117,7 +170,7 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
                 "Violent Crimes & Weapons",
                 "Military Defense (UCMJ)",
                 "Sex Crimes & Internet",
-                "Expungement & Rights Restoration"
+                "Expungement & Rights Restoration",
               ].map((area) => (
                 <button
                   type="button"
@@ -171,8 +224,12 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
                 onChange={(e) => setIsEmergency(e.target.checked)}
                 className="accent-[#D9AD74] w-4 h-4 cursor-pointer"
               />
-              <label htmlFor="emergency" className="text-xs text-[#D8D4CE]/90 cursor-pointer">
-                <strong>URGENT / Immediate Court Date in Next 48 Hours</strong> (Triggers priority hotline response)
+              <label
+                htmlFor="emergency"
+                className="text-xs text-[#D8D4CE]/90 cursor-pointer"
+              >
+                <strong>URGENT / Immediate Court Date in Next 48 Hours</strong>{" "}
+                (Triggers priority hotline response)
               </label>
             </div>
 
@@ -197,12 +254,15 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
 
         {/* STEP 3: Contact & Date Selection */}
         {step === 3 && (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} ref={form} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">Full Name *</label>
+                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">
+                  Full Name *
+                </label>
                 <input
                   type="text"
+                  name="name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Your Full Name"
@@ -212,9 +272,12 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">Phone Number *</label>
+                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">
+                  Phone Number *
+                </label>
                 <input
                   type="tel"
+                  name="phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="(757) 000-0000"
@@ -226,9 +289,12 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">Email Address *</label>
+                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">
+                  Email Address *
+                </label>
                 <input
                   type="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@example.com"
@@ -238,9 +304,12 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
               </div>
 
               <div>
-                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">Preferred Consultation Date</label>
+                <label className="text-[10px] font-bold text-[#D9AD74] uppercase tracking-widest block mb-1">
+                  Preferred Consultation Date
+                </label>
                 <input
                   type="date"
+                  name="date"
                   value={preferredDate}
                   onChange={(e) => setPreferredDate(e.target.value)}
                   className="w-full bg-[#0E0C0A] border border-[#D9AD74]/30 rounded-xs p-2.5 text-xs text-[#F5F2ED] focus:border-[#D9AD74] focus:outline-none"
@@ -249,7 +318,8 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
             </div>
 
             <div className="bg-[#181512] p-3 rounded-xs border border-[#D9AD74]/20 text-[11px] text-[#D8D4CE]/70">
-              🔒 Protected by Attorney-Client Privilege. Zero cost or obligation.
+              🔒 Protected by Attorney-Client Privilege. Zero cost or
+              obligation.
             </div>
 
             <div className="flex justify-between items-center pt-2">
@@ -260,7 +330,7 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
               >
                 ← Back
               </button>
-              
+
               <button
                 type="submit"
                 disabled={loading}
@@ -280,16 +350,26 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
             </div>
 
             <div>
-              <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED]">Request Transmitted to Defense Partners</h3>
+              <h3 className="font-crimson text-2xl font-bold text-[#F5F2ED]">
+                Request Transmitted to Defense Partners
+              </h3>
               <p className="text-[#D8D4CE]/70 text-xs mt-2 max-w-md mx-auto">
-                Thank you, <strong>{fullName || 'Client'}</strong>. Your incident brief for <strong>{practiceArea}</strong> has been assigned to a senior criminal defense attorney at 757 Defense.
+                Thank you, <strong>{fullName || "Client"}</strong>. Your
+                incident brief for <strong>{practiceArea}</strong> has been
+                assigned to a senior criminal defense attorney at 757 Defense.
               </p>
             </div>
 
             <div className="bg-[#181512] p-4 rounded-xs border border-[#D9AD74]/30 max-w-sm mx-auto space-y-1">
-              <span className="text-[10px] text-[#D9AD74] uppercase tracking-widest block font-bold">Confidential Reference Code</span>
-              <span className="font-mono text-xl font-bold text-[#F5F2ED]">{confirmation}</span>
-              <span className="text-[10px] text-[#D8D4CE]/60 block pt-1">A defense lawyer will contact you within 15 minutes.</span>
+              <span className="text-[10px] text-[#D9AD74] uppercase tracking-widest block font-bold">
+                Confidential Reference Code
+              </span>
+              <span className="font-mono text-xl font-bold text-[#F5F2ED]">
+                {confirmation}
+              </span>
+              <span className="text-[10px] text-[#D8D4CE]/60 block pt-1">
+                A defense lawyer will contact you within 15 minutes.
+              </span>
             </div>
 
             <div className="pt-4">
@@ -302,7 +382,6 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
             </div>
           </div>
         )}
-
       </div>
     </div>
   );
