@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../AppContext.jsx';
+import emailjs from "@emailjs/browser";
 
 const faqData = [
   {
