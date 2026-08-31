@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { 
   Scale, 
   Phone, 
@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../AppContext.jsx';
+import emailjs from "@emailjs/browser";
 
 const faqData = [
   {
@@ -57,19 +58,37 @@ export default function FAQsPage() {
   };
 
   const isOpen = (id) => !!openItems[id];
+  const form = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await emailjs.sendForm(
+      "service_tk7fl6c",
+      "template_eqpg39f",
+      form.current,
+      "nRX9QHFjD5JfN77Lz"
+    );
+
     setFormSubmitted(true);
+    alert("Inquiry sent!");
+
     setTimeout(() => {
       setFormSubmitted(false);
-      setFormName('');
-      setFormEmail('');
-      setFormPhone('');
-      setFormQuestion('');
-    }, 4000);
-  };
+      setFormName("");
+      setFormEmail("");
+      setFormPhone("");
+      setFormQuestion("");
 
+      // Reset the actual form fields
+      form.current?.reset();
+    }, 4000);
+  } catch (err) {
+    console.error("EmailJS Error:", err);
+    alert("Failed to send inquiry. Please try again.");
+  }
+};
   return (
     <div className="bg-[#0B0A08] text-[#D8D4CE] font-poppins selection:bg-[#D9AD74] selection:text-[#0F0F0F]">
       
@@ -241,10 +260,11 @@ export default function FAQsPage() {
                   </div>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} ref={form} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="text"
+                      name='name'
                       placeholder="Your Full Name *"
                       value={formName}
                       onChange={(e) => setFormName(e.target.value)}
@@ -253,6 +273,7 @@ export default function FAQsPage() {
                     />
                     <input
                       type="tel"
+                      name='phone'
                       placeholder="Phone Number *"
                       value={formPhone}
                       onChange={(e) => setFormPhone(e.target.value)}
@@ -263,6 +284,7 @@ export default function FAQsPage() {
                   
                   <input
                     type="email"
+                    name='email'
                     placeholder="Email Address *"
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
@@ -272,6 +294,7 @@ export default function FAQsPage() {
                   
                   <textarea
                     rows="5"
+                    name='message'
                     placeholder="Describe your legal question or situation in detail... *"
                     value={formQuestion}
                     onChange={(e) => setFormQuestion(e.target.value)}

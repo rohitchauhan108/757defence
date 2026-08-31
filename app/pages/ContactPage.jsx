@@ -1,9 +1,29 @@
-'use client';
+"use client";
 
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../AppContext.jsx';
+=======
+import React, { useRef, useState } from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Shield,
+  CheckCircle2,
+  Send,
+  MessageSquare,
+  ShieldAlert,
+  Printer,
+  Navigation,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useApp } from "../AppContext.jsx";
+import emailjs from "@emailjs/browser";
+>>>>>>> 1a964d33f5b167c1d14f44c6345463beb578034d
 
 const OFFICE_ADDRESS = "2400 Princess Anne Road, Virginia Beach, VA 23456";
 const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent("757 Defense " + OFFICE_ADDRESS)}&output=embed`;
@@ -14,13 +34,14 @@ export default function ContactPage() {
   const { onOpenConsultation, onOpenAIAdvisor } = useApp();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
+<<<<<<< HEAD
   useEffect(() => {
     if (formSubmitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
@@ -32,22 +53,44 @@ export default function ContactPage() {
   }, [formSubmitted]);
 
   const handleSubmit = (e) => {
+=======
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setFormSubmitted(true);
+  // };
+  const form = useRef(null);
+  const handleSubmit = async (e) => {
+>>>>>>> 1a964d33f5b167c1d14f44c6345463beb578034d
     e.preventDefault();
-    setFormSubmitted(true);
+
+    try {
+      await emailjs.sendForm(
+        "service_tk7fl6c",
+        "template_eqpg39f",
+        form.current,
+        "nRX9QHFjD5JfN77Lz",
+      );
+
+      alert("Inquiry sent!");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div className="bg-[#0B0A08] text-[#D8D4CE] min-h-screen pb-16 space-y-16 font-poppins selection:bg-[#D9AD74] selection:text-[#0F0F0F]">
-      
       {/* Header */}
       <div className="bg-[#0E0C0A] border-b border-[#D9AD74]/20 py-16 text-center">
         <div className="max-w-4xl mx-auto px-6 space-y-3">
           <span className="text-[#D9AD74] text-xs uppercase tracking-[0.3em] font-semibold block">
             24/7 VIRGINIA BEACH & NORFOLK CRIMINAL DEFENSE
           </span>
-          <h1 className="font-crimson text-4xl sm:text-5xl font-bold text-[#F5F2ED]">Contact 757 Defense</h1>
+          <h1 className="font-crimson text-4xl sm:text-5xl font-bold text-[#F5F2ED]">
+            Contact 757 Defense
+          </h1>
           <p className="text-[#D8D4CE]/70 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
-            Our trial partners are available 24/7 for emergency arrests, bail hearings, and free confidential legal consultations.
+            Our trial partners are available 24/7 for emergency arrests, bail
+            hearings, and free confidential legal consultations.
           </p>
         </div>
       </div>
@@ -55,22 +98,29 @@ export default function ContactPage() {
       {/* Contact Content Grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
           {/* Left Column: Direct Office Cards */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-[#12100E] border border-[#D9AD74]/30 rounded-xs p-6 space-y-4 shadow-xl">
               <h3 className="font-crimson text-xl font-bold text-[#F5F2ED] border-b border-[#D9AD74]/20 pb-2">
                 Virginia Beach Office (Main)
               </h3>
-              
+
               <div className="space-y-3 text-xs text-[#D8D4CE]/80 font-light">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#D9AD74] shrink-0 mt-0.5" />
-                  <span>757 Defense 2400 Princess Anne Road, Virginia Beach, VA 23456</span>
+                  <span>
+                    757 Defense 2400 Princess Anne Road, Virginia Beach, VA
+                    23456
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="tel:7579079075" className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]">Phone: 7579079075</a>
+                  <a
+                    href="tel:7579079075"
+                    className="hover:text-[#D9AD74] font-bold text-[#F5F2ED]"
+                  >
+                    Phone: 7579079075
+                  </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Printer className="w-4 h-4 text-[#D9AD74] shrink-0" />
@@ -78,7 +128,12 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#D9AD74] shrink-0" />
-                  <a href="mailto:757defense@gmail.com" className="hover:text-[#D9AD74]">757defense@Gmail.Com</a>
+                  <a
+                    href="mailto:757defense@gmail.com"
+                    className="hover:text-[#D9AD74]"
+                  >
+                    757defense@Gmail.Com
+                  </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-[#D9AD74] shrink-0" />
@@ -96,11 +151,15 @@ export default function ContactPage() {
                       <MapPin className="w-4 h-4 text-[#D9AD74]" />
                     </div>
                     <div>
-                      <h4 className="font-crimson text-sm font-bold text-[#F5F2ED] leading-tight">Find Our Office</h4>
-                      <p className="text-[10px] text-[#D8D4CE]/60 leading-tight">Virginia Beach, VA</p>
+                      <h4 className="font-crimson text-sm font-bold text-[#F5F2ED] leading-tight">
+                        Find Our Office
+                      </h4>
+                      <p className="text-[10px] text-[#D8D4CE]/60 leading-tight">
+                        Virginia Beach, VA
+                      </p>
                     </div>
                   </div>
-                  <a 
+                  <a
                     href={GOOGLE_MAPS_DIRECTIONS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -129,7 +188,7 @@ export default function ContactPage() {
                 <p className="text-[10px] text-[#D8D4CE]/70 font-light leading-snug truncate">
                   2400 Princess Anne Rd, Virginia Beach
                 </p>
-                <a 
+                <a
                   href={GOOGLE_MAPS_DIRECTIONS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -145,16 +204,23 @@ export default function ContactPage() {
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 bg-[#12100E] border border-[#D9AD74]/30 rounded-xs p-8 space-y-6 shadow-2xl">
             <div>
-              <span className="text-xs font-bold text-[#D9AD74] uppercase tracking-[0.3em] block mb-1">100% Confidential Inquiry</span>
-              <h2 className="font-crimson text-2xl font-bold text-[#F5F2ED]">Direct Message To 757 Trial Lawyers</h2>
+              <span className="text-xs font-bold text-[#D9AD74] uppercase tracking-[0.3em] block mb-1">
+                100% Confidential Inquiry
+              </span>
+              <h2 className="font-crimson text-2xl font-bold text-[#F5F2ED]">
+                Direct Message To 757 Trial Lawyers
+              </h2>
             </div>
 
             {formSubmitted ? (
               <div className="bg-[#D9AD74]/10 border border-[#D9AD74]/30 p-6 rounded-xs text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#D9AD74] mx-auto" />
-                <h3 className="font-crimson text-xl font-bold text-[#F5F2ED]">Message Transmitted</h3>
+                <h3 className="font-crimson text-xl font-bold text-[#F5F2ED]">
+                  Message Transmitted
+                </h3>
                 <p className="text-xs text-[#D8D4CE]/80 font-light">
-                  Thank you. Your message has been routed to the senior partners. An attorney will respond shortly.
+                  Thank you. Your message has been routed to the senior
+                  partners. An attorney will respond shortly.
                 </p>
                 <button
                   onClick={() => setFormSubmitted(false)}
@@ -164,28 +230,38 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} ref={form} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">Your Name *</label>
+                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">
+                      Your Name *
+                    </label>
                     <input
                       type="text"
+                      name="name"
                       required
                       placeholder="e.g. Marcus Vance"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="w-full bg-[#0E0C0A] border border-white/10 p-3 text-xs text-[#F5F2ED] placeholder:text-[#D8D4CE]/30 focus:border-[#D9AD74] focus:outline-none rounded-xs"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">Phone Number *</label>
+                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">
+                      Phone Number *
+                    </label>
                     <input
                       type="tel"
+                      name="phone"
                       required
                       placeholder="(757) 000-0000"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       className="w-full bg-[#0E0C0A] border border-white/10 p-3 text-xs text-[#F5F2ED] placeholder:text-[#D8D4CE]/30 focus:border-[#D9AD74] focus:outline-none rounded-xs"
                     />
                   </div>
@@ -193,37 +269,52 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">Email Address *</label>
+                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="marcus@example.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="w-full bg-[#0E0C0A] border border-white/10 p-3 text-xs text-[#F5F2ED] placeholder:text-[#D8D4CE]/30 focus:border-[#D9AD74] focus:outline-none rounded-xs"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">Charge / Court Location</label>
+                    <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">
+                      Charge / Court Location
+                    </label>
                     <input
                       type="text"
+                      name="charge"
                       placeholder="e.g. Virginia Beach DUI / Speeding"
                       value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, subject: e.target.value })
+                      }
                       className="w-full bg-[#0E0C0A] border border-white/10 p-3 text-xs text-[#F5F2ED] placeholder:text-[#D8D4CE]/30 focus:border-[#D9AD74] focus:outline-none rounded-xs"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">Case Brief / Message *</label>
+                  <label className="text-xs uppercase tracking-wider text-[#D8D4CE]/70 block mb-1 font-bold">
+                    Case Brief / Message *
+                  </label>
                   <textarea
                     rows={5}
+                    name="message"
                     required
                     placeholder="Describe your legal matter, arrest location, or court date in strict confidence..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full bg-[#0E0C0A] border border-white/10 p-3 text-xs text-[#F5F2ED] placeholder:text-[#D8D4CE]/30 focus:border-[#D9AD74] focus:outline-none rounded-xs"
                   />
                 </div>
@@ -240,11 +331,8 @@ export default function ContactPage() {
               </form>
             )}
           </div>
-
         </div>
       </div>
-
-
     </div>
   );
 }
