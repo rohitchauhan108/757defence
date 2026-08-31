@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useApp } from '../AppContext.jsx';
@@ -20,6 +20,16 @@ export default function ContactPage() {
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    if (formSubmitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-18395291590/4aG5CIbQpeMcEMa_x8NE',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+  }, [formSubmitted]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

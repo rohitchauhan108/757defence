@@ -24,6 +24,16 @@ export default function PopupLeadModal() {
     }
   }, []);
 
+  useEffect(() => {
+    if (submitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-18395291590/4aG5CIbQpeMcEMa_x8NE',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+  }, [submitted]);
+
   const handleClose = () => {
     setIsOpen(false);
     sessionStorage.setItem('757def_popup_dismissed', 'true');

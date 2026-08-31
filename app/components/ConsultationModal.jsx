@@ -21,6 +21,16 @@ export default function ConsultationModal({ isOpen, onClose, initialPracticeArea
     }
   }, [initialPracticeArea]);
 
+  useEffect(() => {
+    if (step === 4 && typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-18395291590/4aG5CIbQpeMcEMa_x8NE',
+        'value': 1.0,
+        'currency': 'USD'
+      });
+    }
+  }, [step]);
+
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
