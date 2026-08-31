@@ -1,29 +1,43 @@
+// "use client";
+
+// import React, { useState, useEffect } from 'react';
+// import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
+// import { useRouter } from 'next/navigation';
+// import { useApp } from '../AppContext.jsx';
+// import React, { useRef, useState } from "react";
+// import {
+//   Phone,
+//   Mail,
+//   MapPin,
+//   Clock,
+//   Shield,
+//   CheckCircle2,
+//   Send,
+//   MessageSquare,
+//   ShieldAlert,
+//   Printer,
+//   Navigation,
+// } from "lucide-react";
+// import { useRouter } from "next/navigation";
+// import { useApp } from "../AppContext.jsx";
+// import emailjs from "@emailjs/browser";
+
 "use client";
 
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useApp } from '../AppContext.jsx';
-=======
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Shield,
   CheckCircle2,
   Send,
-  MessageSquare,
-  ShieldAlert,
   Printer,
   Navigation,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useApp } from "../AppContext.jsx";
 import emailjs from "@emailjs/browser";
->>>>>>> 1a964d33f5b167c1d14f44c6345463beb578034d
 
 const OFFICE_ADDRESS = "2400 Princess Anne Road, Virginia Beach, VA 23456";
 const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent("757 Defense " + OFFICE_ADDRESS)}&output=embed`;
@@ -41,7 +55,6 @@ export default function ContactPage() {
     message: "",
   });
 
-<<<<<<< HEAD
   useEffect(() => {
     if (formSubmitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
@@ -52,30 +65,31 @@ export default function ContactPage() {
     }
   }, [formSubmitted]);
 
-  const handleSubmit = (e) => {
-=======
+  // const handleSubmit = (e) => {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setFormSubmitted(true);
   // };
   const form = useRef(null);
-  const handleSubmit = async (e) => {
->>>>>>> 1a964d33f5b167c1d14f44c6345463beb578034d
-    e.preventDefault();
 
-    try {
-      await emailjs.sendForm(
-        "service_tk7fl6c",
-        "template_eqpg39f",
-        form.current,
-        "nRX9QHFjD5JfN77Lz",
-      );
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-      alert("Inquiry sent!");
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  try {
+    await emailjs.sendForm(
+      "service_tk7fl6c",
+      "template_eqpg39f",
+      form.current,
+      "nRX9QHFjD5JfN77Lz"
+    );
+
+    setFormSubmitted(true);
+    alert("Inquiry sent!");
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send inquiry. Please try again.");
+  }
+};
 
   return (
     <div className="bg-[#0B0A08] text-[#D8D4CE] min-h-screen pb-16 space-y-16 font-poppins selection:bg-[#D9AD74] selection:text-[#0F0F0F]">
