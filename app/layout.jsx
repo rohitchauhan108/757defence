@@ -41,7 +41,7 @@ export const metadata = {
   icons: {
     icon:
       {
-        url: "/757-logo.webp",
+        url: "/fav-icon.png",
         type: "image/webp",
       },
   },
