@@ -32,7 +32,6 @@ export default function Footer({ navigate }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Main Columns Grid (5 Columns Balanced Layout) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-          
           {/* Column 1: Brand Logo & Description (Spans 2 columns on large screens) */}
           <div className="space-y-5 sm:col-span-2 lg:col-span-2">
             <Link
@@ -40,17 +39,7 @@ export default function Footer({ navigate }) {
               onClick={(e) => handleNavigation(e, "/")}
               className="flex items-center gap-3 group inline-flex"
             >
-              <div className="w-12 h-12 border border-[#D9AD74]/60 flex items-center justify-center text-[#D9AD74] group-hover:bg-[#D9AD74] group-hover:text-[#0F0F0F] transition-all duration-300 rounded-sm shadow-lg shadow-[#D9AD74]/5">
-                <ShieldAlert className="w-7 h-7" />
-              </div>
-              <div>
-                <span className="font-crimson text-3xl font-extrabold tracking-[0.1em] text-[#F5F2ED]">
-                  757 <span className="text-[#D9AD74]">DEFENSE</span>
-                </span>
-                <p className="text-[10px] tracking-[0.25em] text-[#D9AD74] uppercase font-medium -mt-1">
-                  KARPOV LAW, PLLC
-                </p>
-              </div>
+              <img src="/757-logo.webp" alt="" height={100} width={130} />
             </Link>
 
             <p className="text-sm text-[#D8D4CE]/75 font-light leading-relaxed max-w-sm">
@@ -112,14 +101,38 @@ export default function Footer({ navigate }) {
             </h3>
             <ul className="space-y-3 text-xs text-[#D8D4CE]/75 font-light">
               {[
-                { label: "ASSAULT AND BATTERY", path: "/criminal-offenses/assault-and-battery" },
-                { label: "DRUG CRIMES", path: "/criminal-offenses/drug-crimes" },
-                { label: "THEFT/PROPERTY CRIMES", path: "/criminal-offenses/theft-property-crimes" },
-                { label: "VIOLENT OFFENSES", path: "/criminal-offenses/violent-offenses" },
-                { label: "WEAPONS/FIREARMS", path: "/criminal-offenses/weapons-firearms" },
-                { label: "DOMESTIC VIOLENCE", path: "/criminal-offenses/domestic-violence" },
-                { label: "PROTECTIVE ORDERS", path: "/criminal-offenses/protective-orders" },
-                { label: "JUVENILE OFFENSES", path: "/criminal-offenses/juvenile-offense" },
+                {
+                  label: "ASSAULT AND BATTERY",
+                  path: "/criminal-offenses/assault-and-battery",
+                },
+                {
+                  label: "DRUG CRIMES",
+                  path: "/criminal-offenses/drug-crimes",
+                },
+                {
+                  label: "THEFT/PROPERTY CRIMES",
+                  path: "/criminal-offenses/theft-property-crimes",
+                },
+                {
+                  label: "VIOLENT OFFENSES",
+                  path: "/criminal-offenses/violent-offenses",
+                },
+                {
+                  label: "WEAPONS/FIREARMS",
+                  path: "/criminal-offenses/weapons-firearms",
+                },
+                {
+                  label: "DOMESTIC VIOLENCE",
+                  path: "/criminal-offenses/domestic-violence",
+                },
+                {
+                  label: "PROTECTIVE ORDERS",
+                  path: "/criminal-offenses/protective-orders",
+                },
+                {
+                  label: "JUVENILE OFFENSES",
+                  path: "/criminal-offenses/juvenile-offense",
+                },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -142,13 +155,22 @@ export default function Footer({ navigate }) {
             </h3>
             <ul className="space-y-3 text-xs text-[#D8D4CE]/75 font-light">
               {[
-                { label: "Bond Hearing and Appeals", path: "/bond-hearings-and-appeals" },
+                {
+                  label: "Bond Hearing and Appeals",
+                  path: "/bond-hearings-and-appeals",
+                },
                 { label: "Criminal Discovery", path: "/criminal-discovery" },
                 { label: "Evidentiary Motion", path: "/evidentiary-motion" },
-                { label: "Motions to suppress", path: "/motions-to-suppress-the-evidence" },
+                {
+                  label: "Motions to suppress",
+                  path: "/motions-to-suppress-the-evidence",
+                },
                 { label: "Preliminary Hearing", path: "/preliminary-hearing" },
                 { label: "Probation Hearing", path: "/probation-hearing" },
-                { label: "Bench and Jury Trials", path: "/bench-and-jury-trials" },
+                {
+                  label: "Bench and Jury Trials",
+                  path: "/bench-and-jury-trials",
+                },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -163,7 +185,6 @@ export default function Footer({ navigate }) {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* Contact Info Bar */}
@@ -193,7 +214,9 @@ export default function Footer({ navigate }) {
               <span className="text-[11px] uppercase text-[#D8D4CE]/55 block font-semibold tracking-wider">
                 Fax Number
               </span>
-              <span className="font-bold text-[#F5F2ED] text-base">(757) 782-9982</span>
+              <span className="font-bold text-[#F5F2ED] text-base">
+                (757) 782-9982
+              </span>
             </div>
           </div>
 
@@ -232,16 +255,21 @@ export default function Footer({ navigate }) {
         {/* Bottom Copyright & Legal Disclaimer */}
         <div className="pt-8 text-center space-y-4">
           <p className="text-xs text-[#D8D4CE]/60 font-light leading-relaxed max-w-4xl mx-auto">
-            <strong className="text-[#D8D4CE]/80 font-medium">LEGAL DISCLAIMER:</strong> The
-            use of the internet or the email contact form for communication does
-            not establish an attorney-client relationship. Karpov Law PLLC, and
-            attorney Anton A. Karpov do not guarantee any particular outcome of
-            the representation. Every case is different and fact-specific, and
-            the results obtained will be related to the facts and merits of the
-            particular case.
+            <strong className="text-[#D8D4CE]/80 font-medium">
+              LEGAL DISCLAIMER:
+            </strong>{" "}
+            The use of the internet or the email contact form for communication
+            does not establish an attorney-client relationship. Karpov Law PLLC,
+            and attorney Anton A. Karpov do not guarantee any particular outcome
+            of the representation. Every case is different and fact-specific,
+            and the results obtained will be related to the facts and merits of
+            the particular case.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-sm text-[#D8D4CE]/50 font-medium pt-2">
-            <span>757defense is a registered name for Karpov Law PLLC and Pugh and Karpov Law PC.</span>
+            <span>
+              757defense is a registered name for Karpov Law PLLC and Pugh and
+              Karpov Law PC.
+            </span>
             <span className="hidden sm:inline">•</span>
             <span>© 2026 757 Defense. All Rights Reserved.</span>
           </div>

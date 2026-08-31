@@ -138,7 +138,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar Header */}
-      <nav className="max-w-7xl mx-auto px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
         <div className="flex justify-between items-center h-22">
           
           {/* Logo */}
@@ -146,19 +146,9 @@ export default function Navbar() {
             className="flex items-center gap-3 select-none cursor-pointer"
             onClick={() => handleNavigate('/')}
           >
-            <div className="w-10 h-10 border border-[#D9AD74] flex items-center justify-center text-[#D9AD74] rounded-xs">
-              <ShieldAlert className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1">
-                <span className="font-crimson text-2xl font-extrabold tracking-[0.1em] text-[#F5F2ED]">
-                  757 <span className="text-[#D9AD74]">DEFENSE</span>
-                </span>
-              </div>
-              <p className="text-[8.5px] tracking-[0.2em] text-[#D9AD74] uppercase font-poppins font-medium -mt-1">
-                CRIMINAL & DUI LAWYERS • HAMPTON ROADS
-              </p>
-            </div>
+            <img src="/757-logo.webp" alt=""
+            height={100}
+            width={110} />
           </div>
 
           {/* Desktop Nav */}
