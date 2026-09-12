@@ -24,7 +24,7 @@
 
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import {
   Phone,
   Mail,
@@ -54,16 +54,6 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-
-  useEffect(() => {
-    if (formSubmitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-18395291590/4aG5CIbQpeMcEMa_x8NE',
-        'value': 1.0,
-        'currency': 'USD'
-      });
-    }
-  }, [formSubmitted]);
 
   // const handleSubmit = (e) => {
   // const handleSubmit = (e) => {
