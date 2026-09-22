@@ -113,7 +113,7 @@ export default function Hero() {
           >
             <div className="relative w-full max-w-sm lg:max-w-md h-[400px] sm:h-[460px] lg:h-[500px] rounded-xs overflow-hidden border border-[#D9AD74]/30 shadow-2xl bg-[#14120F]">
               <img
-                src="/images/owner.jpg"
+                src="/images/owner.webp"
                 alt="Anton Karpov, Esq. - Lead Criminal Defense Attorney"
                 className="w-full h-full object-cover object-top filter brightness-95 contrast-105"
                 referrerPolicy="no-referrer"

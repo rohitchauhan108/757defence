@@ -70,6 +70,32 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-18395291590');
           `}
         </Script>
+        <Script id="contact-conversion-tracking" strategy="afterInteractive">
+          {`
+            (function () {
+              function trackContactConversion() {
+                if (!window.location.href.includes('/contact')) return;
+
+                var contactTimer = setInterval(function () {
+                  if (document.querySelectorAll('[class="font-crimson text-xl font-bold text-[#F5F2ED]"]').length > 0) {
+                    if (typeof window.gtag === 'function') {
+                      window.gtag('event', 'conversion', {
+                        send_to: 'AW-18395291590/dLSMCJ2Ck_QcEMa_x8NE'
+                      });
+                    }
+                    clearInterval(contactTimer);
+                  }
+                }, 1000);
+              }
+
+              if (document.readyState === 'loading') {
+                window.addEventListener('load', trackContactConversion, { once: true });
+              } else {
+                trackContactConversion();
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

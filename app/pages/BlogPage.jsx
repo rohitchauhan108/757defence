@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { blogPosts } from '../data/blogPosts.js';
-import { BookOpen, Calendar, User, ArrowRight } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useApp } from '../AppContext.jsx';
+import React from "react";
+import Script from "next/script";
+import { blogPosts } from "../data/blogPosts.js";
+import { BookOpen, Calendar, User, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useApp } from "../AppContext.jsx";
 
 export default function BlogPage() {
   const router = useRouter();
@@ -15,22 +16,28 @@ export default function BlogPage() {
 
   return (
     <div className="bg-[#0F0F0F] text-[#F5F2ED] min-h-screen pb-16 space-y-12 font-sans">
-      
       {/* Header */}
       <div className="bg-[#141414] border-b border-white/10 py-16 text-center">
         <div className="max-w-4xl mx-auto px-6 space-y-3">
           <span className="text-[#D9AD74] text-xs uppercase tracking-[0.3em] font-medium block">
             Legal Insights & Analysis
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#F5F2ED]">LawOne Legal Blog</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[#F5F2ED]">
+            LawOne Legal Blog
+          </h1>
           <p className="text-[#F5F2ED]/60 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
-            Articles, corporate regulatory updates, and rights guides published by LawOne partners.
+            Articles, corporate regulatory updates, and rights guides published
+            by LawOne partners.
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
-        
+        <div id="soro-blog" />
+        <Script
+          src="https://app.trysoro.com/api/embed/2bbcfaee-1c30-41a1-a4a5-5f25a7b7ade1"
+          strategy="afterInteractive"
+        />
         {/* Featured Post (Top) */}
         {featuredPost && (
           <div

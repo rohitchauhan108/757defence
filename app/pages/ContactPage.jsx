@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import {
   Phone,
   Mail,
@@ -31,6 +31,7 @@ export default function ContactPage() {
     message: "",
   });
 
+<<<<<<< HEAD
   useEffect(() => {
     if (formSubmitted && typeof window !== 'undefined' && typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
@@ -41,6 +42,13 @@ export default function ContactPage() {
     }
   }, [formSubmitted]);
 
+=======
+  // const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setFormSubmitted(true);
+  // };
+>>>>>>> af8918774696be5fe33f5385c98b7a9927da7279
   const form = useRef(null);
 
 const handleSubmit = async (e) => {

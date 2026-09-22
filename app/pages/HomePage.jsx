@@ -485,7 +485,7 @@ export default function HomePage() {
               {/* Image Column */}
               <div className="sm:w-2/5 relative h-72 sm:h-auto min-h-[300px] bg-[#0E0C0A] overflow-hidden shrink-0">
                 <img
-                  src="/images/owner.jpg"
+                  src="/images/owner.webp"
                   alt="Anton Karpov, Esq."
                   className="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"

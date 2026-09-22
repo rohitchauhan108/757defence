@@ -9,7 +9,7 @@ export const attorneys = [
     education: "J.D., William & Mary Law School (2006)",
     admissions: "Virginia State Bar, Virginia Court of Appeals, Supreme Court of Virginia, Juvenile and Domestic Relations District Court, General District Court, Circuit Court of Virginia Beach",
     bio: "Attorney Anton Karpov obtained his Law Degree in 2006 from William & Mary Law School. He began his legal career as a Public Defender in Virginia Beach. For twelve years, he fought fiercely and passionately for each client, tried hundreds of criminal cases, argued legal motions in the Juvenile and Domestic, General District and Circuit Courts of Virginia Beach, and argued appellate cases before the Virginia Court of Appeals and Supreme Court of Virginia. Attorney Karpov specializes in Criminal and Traffic Defense and Personal Injury cases and is considered one of the best criminal defense attorneys in the area.",
-    image: "/images/owner.jpg",
+    image: "/images/owner.webp",
     awards: ["Award-Winning Criminal Defense Attorney", "Recognized by Peers", "Appreciated by Clients Across Hampton Roads", "Former Public Defender (12 Years)"],
     casesCount: 500,
     phone: "(757) 907-9075",
