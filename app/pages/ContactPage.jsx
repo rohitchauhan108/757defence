@@ -1,27 +1,3 @@
-// "use client";
-
-// import React, { useState, useEffect } from 'react';
-// import { Phone, Mail, MapPin, Clock, Shield, CheckCircle2, Send, MessageSquare, ShieldAlert, Printer, Navigation } from 'lucide-react';
-// import { useRouter } from 'next/navigation';
-// import { useApp } from '../AppContext.jsx';
-// import React, { useRef, useState } from "react";
-// import {
-//   Phone,
-//   Mail,
-//   MapPin,
-//   Clock,
-//   Shield,
-//   CheckCircle2,
-//   Send,
-//   MessageSquare,
-//   ShieldAlert,
-//   Printer,
-//   Navigation,
-// } from "lucide-react";
-// import { useRouter } from "next/navigation";
-// import { useApp } from "../AppContext.jsx";
-// import emailjs from "@emailjs/browser";
-
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -65,11 +41,6 @@ export default function ContactPage() {
     }
   }, [formSubmitted]);
 
-  // const handleSubmit = (e) => {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setFormSubmitted(true);
-  // };
   const form = useRef(null);
 
 const handleSubmit = async (e) => {

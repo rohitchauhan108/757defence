@@ -97,7 +97,6 @@ export default function Navbar() {
       dropdown: servicesDropdown
     },
     { label: 'FAQS', path: '/faqs' },
-    // { label: 'BLOG', path: '/blog' },
     { label: 'CONTACT US', path: '/contact' }
   ];
 

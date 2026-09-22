@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import data from '../data'; // Adjust path as needed
-import data2 from '../data';
+import data from '../data';
 
 // 1. Generate static routes at build time
 export function generateStaticParams() {
